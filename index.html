@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marbella New-Build Atlas · Costa del Sol 2028–2030</title>
+<meta name="description" content="Interactive map of Costa del Sol new-build projects, sea-view shortlist up to €3M, international schools and growth hotspots around Marbella.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2a3f'/%3E%3Cpath d='M12 42c8-6 14-6 20 0s12 6 20 0' stroke='%23d8b36a' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='22' r='7' fill='%23d8b36a'/%3E%3C/svg%3E">
+</head>
+<body>
+<div id="app">
+  <aside id="sidebar">
+    <header class="brand">
+      <div class="logo"><svg viewBox="0 0 64 64"><path d="M10 42c8-6 14-6 22 0s14 6 22 0" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="32" cy="22" r="7" fill="currentColor"/></svg></div>
+      <div><div class="eyebrow">Costa del Sol · 2028–2030</div><h1>Marbella New-Build Atlas</h1></div>
+    </header>
+    <div class="stats" id="stats"></div>
+    <div class="search"><input id="q" type="search" placeholder="Search projects, areas, schools…" autocomplete="off"></div>
+    <section class="filters">
+      <div class="frow"><label>Show</label>
+        <div class="seg" id="f-scope"><button data-v="all" class="on">All projects</button><button data-v="shortlist">Shortlist ≤ €3M</button></div></div>
+      <div class="frow"><label>Type</label><div class="chips" id="f-type"></div></div>
+      <div class="frow"><label>Delivery</label><div class="chips" id="f-year"></div></div>
+      <div class="frow"><label>Max price <span id="pval" class="rv"></span></label>
+        <input type="range" id="f-price" min="500000" max="13000000" step="250000" value="13000000"></div>
+      <div class="frow"><label>Min fit score <span id="fval" class="rv"></span></label>
+        <input type="range" id="f-fit" min="0" max="9" step="0.5" value="0"></div>
+      <div class="frow two"><label class="check"><input type="checkbox" id="f-terrace"> Terraces 60 m²+</label><label class="check"><input type="checkbox" id="f-scores" checked> Score labels on map</label><button class="infob" id="infobtn" type="button">ⓘ How scores work</button></div>
+      <div class="frow"><label>Layers</label>
+        <div class="chips layers" id="f-layers">
+          <button data-l="props" class="on"><i class="dot d-prop"></i>Projects</button>
+          <button data-l="schools" class="on"><i class="dot d-school"></i>Schools</button>
+          <button data-l="zones" class="on"><i class="dot d-zone"></i>Hotspots</button>
+          <button data-l="pois" class="on"><i class="dot d-poi"></i>Marinas & catalysts</button>
+          <button data-l="train" class="on"><i class="dot d-train"></i>Train study</button>
+        </div></div>
+    </section>
+    <div class="listhead"><span id="count"></span><select id="sort"><option value="fit">Fit score: high to low</option><option value="price">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="year">Delivery: soonest</option><option value="year-desc">Delivery: latest</option><option value="name">Name</option></select></div>
+    <div id="list"></div>
+    <footer class="foot">Research as of <span id="upd"></span>. Prices exclude 10% VAT and 1.2% stamp duty unless stated; sea views and terraces as claimed by developers/agents. ◌ marks approximate pin locations. Hotspot outlines are indicative, not official boundaries. Basemaps © Esri and OpenStreetMap contributors.</footer>
+  </aside>
+  <main id="mapwrap">
+    <div id="map"></div>
+    <div class="basemaps" id="basemaps"><button data-b="voyager" class="on">Map</button><button data-b="positron">Light</button><button data-b="osm">Street</button><button data-b="imagery">Satellite</button></div>
+    <div class="legend" id="legend"><button class="lgx" onclick="this.parentNode.classList.toggle('min')" aria-label="Collapse legend">–</button>
+      <div class="lg-title">Legend</div>
+      <div><i class="pin-s gold"></i>Shortlist ≤ €3M (sea view)</div>
+      <div><i class="pin-s navy"></i>Pipeline project</div>
+      <div><i class="pin-s plum"></i>Branded residences</div>
+      <div><i class="pin-s green"></i>International school</div>
+      <div><i class="pin-s teal"></i>Marina / catalyst / landmark</div>
+      <div><i class="sw growth"></i>Growth hotspot</div>
+      <div><i class="sw blue"></i>Blue chip</div>
+      <div><i class="sw upgrade"></i>Upgrade / optionality</div>
+      <div><i class="ln"></i>Train study (schematic)</div><div><i class="rd"></i>AP-7 · A-7 · A-355 · A-397</div><div><i class="pin-s" style="background:#b5485d"></i>Old town</div>
+      <div><span class="fit hi">8+</span> <span class="fit mid">6–8</span> <span class="fit lo">&lt;6</span> fit score</div>
+      <div class="muted">Dashed pin ring = approximate location</div>
+      <button class="infob" onclick="document.getElementById('info').classList.add('open')">ⓘ How scores work</button>
+    </div>
+    <div id="info" class="info"><button id="infoclose" class="x" aria-label="Close">✕</button><h4>How the fit score works</h4><p id="infotext"></p>
+      <table><tr><td>Sea view</td><td>2.0</td></tr><tr><td>Price vs €3M budget (≤€3M full, €3–4M half, unpublished 0.5)</td><td>2.0</td></tr><tr><td>Gated / 24h security</td><td>1.0</td></tr><tr><td>Private pool or plot (0.75) + terrace ≥60 m² (0.75)</td><td>1.5</td></tr><tr><td>Delivery 2028–2030 (unknown 0.25)</td><td>1.0</td></tr><tr><td>Hotspot rating on the Page (Growth 1, Value .8, Upgrade/Optionality .6, Blue chip .5)</td><td>1.5</td></tr><tr><td>Nearest intl. school ≤5 km (≤10 km .6, ≤15 km .3)</td><td>1.0</td></tr></table>
+      <p class="note">Hotspot badges show the sourced Idealista asking-price change (y/y) plus the average fit of projects in that area. School badges show each school's published headline result.</p></div>
+    <button id="mobtoggle" aria-label="Toggle list">☰ List</button>
+  </main>
+  <section id="detail" aria-hidden="true"><div class="dscroll" id="dbody"></div></section>
+</div>
+<script src="vendor/leaflet.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
