@@ -32,7 +32,7 @@ const zoneStyle={growth:['#e08a4a',.16],blue:['#3467a8',.16],upgrade:['#9b59b6',
 const zoneLayers={},zoneLabels={};
 function zoneLabelHtml(z){const short=z.short||z.name.split(/[:,(]/)[0].replace(/Nueva Andalucía /,'');
  return `<div class="zl">${z.rank?'<b>#'+z.rank+'</b> ':''}${esc(short)}${st.scores&&(z.growth||z.avgFit!=null)?`<span class="zb">${z.growth?esc(z.growth):''}${z.growth&&z.avgFit!=null?' · ':''}${z.avgFit!=null?'fit '+z.avgFit:''}</span>`:''}</div>`;}
-const st={scope:'all',type:'All',year:'All',max:13000000,terrace:false,q:'',sort:'fit',scores:true,minFit:0,layers:{props:1,schools:1,zones:1,pois:1,train:1,roads:0}};
+const st={scope:'all',type:'All',year:'All',pmin:0,pmax:22,unknown:true,terrace:false,q:'',sort:'fit',scores:true,minFit:0,layers:{props:1,schools:1,zones:1,pois:1,train:1,roads:0}};
 POIL.forEach(g=>st.layers['poi_'+g.id]=g.on?1:0);
 D.zones.forEach(z=>{const [c,o]=zoneStyle[z.tone]||zoneStyle.neutral;
  const pg=L.polygon(z.poly,{color:c,weight:z.tone==='heritage'?2.2:1.6,dashArray:z.tone==='heritage'?null:'5 4',fillColor:c,fillOpacity:o}).addTo(layers.zones);
@@ -55,10 +55,11 @@ const RC={'AP-7':'#d1495b','A-7':'#edae49','A-355':'#00798c','A-397':'#30638e'};
 
 // ---------- markers
 const markers={};
-const propClass=p=>p.shortlist?'gold':p.category==='Branded residences'?'plum':'navy';
+const propClass=p=>p.shortlist?'gold':p.category==='Branded residences'?'plum':p.premium?'sea':'navy';
+const tierLbl=p=>p.shortlist?'Shortlist ≤ €3M':p.premium?(p.price?'Sea view €3–10M':'Luxury pipeline · price TBA'):'Pipeline';
 const webBtn=(u,label,cls)=>u?`<a class="btn web ${cls||''}" href="${esc(u)}" target="_blank" rel="noopener">${label} ↗</a>`:'';
 function popProject(p){const ph=p.photos&&p.photos[0];
- return `<div class="pop">${ph?`<img src="${ph.thumb}" alt="">`:`<div class="ph-ph sm">${catIcon(p)}</div>`}<div class="pb"><div class="pk">${p.shortlist?'Shortlist ≤ €3M':'Pipeline'} · ${esc(p.category)}</div><h3>${esc(p.name)}</h3><div class="pa">${esc(p.area)}</div><div class="pr"><b>${esc(p.priceText)}</b><span class="fit ${fitCls(p.fit)}">Fit ${p.fit}</span></div><div class="pbtn"><a class="btn sm" href="#/project/${p.id}">Details</a>${webBtn(p.url,'Visit project website','primary sm')}</div>${ph?`<div class="credit">Photo: ${esc(p.photoCredit)}</div>`:''}</div></div>`;}
+ return `<div class="pop">${ph?`<img src="${ph.thumb}" alt="">`:`<div class="ph-ph sm">${catIcon(p)}</div>`}<div class="pb"><div class="pk">${tierLbl(p)} · ${esc(p.category)}</div><h3>${esc(p.name)}</h3><div class="pa">${esc(p.area)}</div><div class="pr"><b>${esc(p.priceText)}</b><span class="fit ${fitCls(p.fit)}">Fit ${p.fit}</span></div><div class="pbtn"><a class="btn sm" href="#/project/${p.id}">Details</a>${webBtn(p.url,'Visit project website','primary sm')}</div>${ph?`<div class="credit">Photo: ${esc(p.photoCredit)}</div>`:''}</div></div>`;}
 function popSchool(s){const ph=s.photos&&s.photos[0];
  return `<div class="pop">${ph?`<img src="${ph.thumb}" alt="">`:''}<div class="pb"><div class="pk">International school · #${s.rank}</div><h3>${esc(s.name)}</h3><div class="pa">${esc(s.curriculum)}</div><div class="pr"><span class="fit sch">${esc(s.badge)}</span></div><div class="pbtn"><a class="btn sm" href="#/school/${s.id}">Details</a>${webBtn(s.site||s.url,'Visit school website','primary sm')}</div></div></div>`;}
 function popPoi(x,g){return `<div class="pop"><div class="pb"><div class="pk">${esc(g?g.name:x.kind)}</div><h3>${esc(x.name)}</h3>${x.type?`<div class="pa">${esc(x.type)}</div>`:''}${x.detail?`<p class="pd">${esc(x.detail)}</p>`:''}<div class="pbtn">${x.id&&!g?`<a class="btn sm" href="#/place/${x.id}">Details</a>`:''}${webBtn(x.url,'Website','primary sm')}${x.osm?`<a class="btn sm" href="${x.osm}" target="_blank" rel="noopener">OpenStreetMap ↗</a>`:''}</div></div></div>`;}
@@ -82,7 +83,18 @@ const layerDefs=[['props','d-prop','Projects'],['schools','d-school','Schools'],
 $('#f-layers').innerHTML=layerDefs.map(([k,c,n,col])=>`<button data-l="${k}" class="${st.layers[k]?'on':''}"><i class="dot ${c}" ${col?`style="background:${col}"`:''}></i>${esc(n)}${k.startsWith('poi_')?` <small>${POIL.find(g=>'poi_'+g.id===k).items.length}</small>`:''}</button>`).join('');
 const chipGroup=(sel,key)=>$$(sel+' button').forEach(b=>b.onclick=()=>{st[key]=b.dataset.v;$$(sel+' button').forEach(x=>x.classList.toggle('on',x===b));render();});
 chipGroup('#f-type','type');chipGroup('#f-year','year');chipGroup('#f-scope','scope');
-const pr=$('#f-price');const pv=()=>{$('#pval').textContent=+pr.value>=13000000?'Any':'≤ '+fmt(+pr.value);};pr.oninput=()=>{st.max=+pr.value;pv();render();};pv();
+const PS=[0,500e3,750e3,1e6,1.25e6,1.5e6,1.75e6,2e6,2.25e6,2.5e6,2.75e6,3e6,3.5e6,4e6,4.5e6,5e6,6e6,7e6,7.5e6,8e6,9e6,10e6,Infinity];
+const pmn=$('#f-pmin'),pmx=$('#f-pmax');
+function pv(){const a=+pmn.value,b=+pmx.value;const lo=PS[a],hi=PS[b];$('#pval').textContent=(a===0&&b===22)?'Any':(a===0?'≤ '+fmt(hi):b===22?fmt(lo)+'+':fmt(lo)+' – '+fmt(hi));
+ $('#dfill').style.left=(a/22*100)+'%';$('#dfill').style.right=(100-b/22*100)+'%';
+ document.querySelectorAll('#f-preset button').forEach(x=>x.classList.toggle('on',x.dataset.p===a+','+b));}
+function setP(a,b){st.pmin=a;st.pmax=b;pmn.value=a;pmx.value=b;pv();render();}
+pmn.oninput=()=>{let a=+pmn.value;if(a>+pmx.value-1){a=Math.max(0,+pmx.value-1);pmn.value=a;}setP(a,+pmx.value);};
+pmx.oninput=()=>{let b=+pmx.value;if(b<+pmn.value+1){b=Math.min(22,+pmn.value+1);pmx.value=b;}setP(+pmn.value,b);};
+document.querySelectorAll('#f-preset button').forEach(x=>x.onclick=()=>{const [a,b]=x.dataset.p.split(',').map(Number);setP(a,b);});
+$('#f-unknown').onchange=e=>{st.unknown=e.target.checked;render();};
+$('#uval').textContent='('+D.properties.filter(p=>!p.price).length+')';pv();
+const priceOk=p=>!p.price?st.unknown:(p.price>=PS[st.pmin]&&p.price<=PS[st.pmax]);
 const fr=$('#f-fit');const fv=()=>{$('#fval').textContent=+fr.value?'≥ '+fr.value:'Any';};fr.oninput=()=>{st.minFit=+fr.value;fv();render();};fv();
 $('#f-terrace').onchange=e=>{st.terrace=e.target.checked;render();};
 $('#f-scores').onchange=e=>{st.scores=e.target.checked;refreshIcons();render();};
@@ -93,17 +105,17 @@ $('#infobtn').onclick=()=>$('#info').classList.toggle('open');$('#infoclose').on
 $('#infotext').textContent=D.scoreInfo;
 const yb=p=>!p.year?'Not stated':p.year>=2030?'2030+':String(p.year);
 const match=(o,f)=>!st.q||f.some(k=>String(o[k]||'').toLowerCase().includes(st.q));
-function visibleProps(){return D.properties.filter(p=>(st.scope==='all'||p.shortlist)&&(st.type==='All'||p.category===st.type)&&(st.year==='All'||yb(p)===st.year)&&(st.max>=13000000||(p.price&&p.price<=st.max))&&(!st.terrace||(p.terraceMax||0)>=60)&&p.fit>=st.minFit&&match(p,['name','area','zone','developer','kind','category']));}
+function visibleProps(){return D.properties.filter(p=>(st.scope==='all'||(st.scope==='shortlist'?p.shortlist:p.premium))&&(st.type==='All'||p.category===st.type)&&(st.year==='All'||yb(p)===st.year)&&priceOk(p)&&(!st.terrace||(p.terraceMax||0)>=60)&&p.fit>=st.minFit&&match(p,['name','area','zone','developer','kind','category']));}
 function sortP(a){const s=st.sort;return a.sort((x,y)=>s==='fit'?y.fit-x.fit:s==='name'?x.name.localeCompare(y.name):s==='year'?(x.year||9999)-(y.year||9999):s==='year-desc'?(y.year||0)-(x.year||0):s==='price-desc'?(y.price||0)-(x.price||0):(x.price||9e12)-(y.price||9e12));}
 $('#upd').textContent=D.updated;
 const nPoi=POIL.reduce((a,g)=>a+g.items.length,0);
-$('#stats').innerHTML=[[D.properties.length,'Projects'],[D.properties.filter(p=>p.shortlist).length,'Shortlist ≤ €3M'],[D.schools.length,'Schools'],[nPoi+D.pois.length,'Places']].map(([n,l])=>`<div><b>${n}</b><span>${l}</span></div>`).join('');
+$('#stats').innerHTML=[[D.properties.length,'Projects'],[D.properties.filter(p=>p.shortlist).length,'Shortlist ≤ €3M'],[D.properties.filter(p=>p.premium).length,'€3–10M sea view'],[D.schools.length,'Schools'],[nPoi+D.pois.length,'Places']].map(([n,l])=>`<div><b>${n}</b><span>${l}</span></div>`).join('');
 const catIcon=p=>p.category==='Villa'?'⌂':p.category==='Townhouse'?'▥':p.category==='Branded residences'?'✦':'▤';
-const catBg=p=>p.shortlist?'linear-gradient(135deg,#b88a3e,#d9b56f)':p.category==='Branded residences'?'#6d3f78':'#0f2a3f';
+const catBg=p=>p.shortlist?'linear-gradient(135deg,#b88a3e,#d9b56f)':p.category==='Branded residences'?'#6d3f78':p.premium?'#1f6fb2':'#0f2a3f';
 function render(){
  const vp=sortP(visibleProps());layers.props.clearLayers();vp.forEach(p=>markers['project/'+p.id].addTo(layers.props));
  let h='';
- if(st.layers.props){h+=vp.map(p=>{const ph=p.photos&&p.photos[0];return `<div class="card" data-r="project/${p.id}">${ph?`<div class="th" style="background-image:url('${ph.thumb}')"></div>`:`<div class="ic" style="background:${catBg(p)}">${catIcon(p)}</div>`}<div style="flex:1;min-width:0"><div style="display:flex;gap:8px;align-items:flex-start"><h3>${esc(p.name)}</h3><span class="price">${p.price?fmt(p.price):'TBA'}</span></div><div class="sub">${esc(p.area)}</div><div class="row"><span class="fit ${fitCls(p.fit)}">Fit ${p.fit}</span>${p.shortlist?'<span class="tag gold">Shortlist</span>':''}<span class="tag">${esc(p.category)}</span><span class="tag navy">${esc(p.delivery)}</span>${(p.terraceMax||0)>=60?`<span class="tag green">Terrace ${p.terraceMax} m²</span>`:''}${p.precise?'':'<span class="tag warn">◌ approx.</span>'}</div></div></div>`;}).join('')||'<div class="note" style="padding:10px">No projects match these filters.</div>';}
+ if(st.layers.props){h+=vp.map(p=>{const ph=p.photos&&p.photos[0];return `<div class="card" data-r="project/${p.id}">${ph?`<div class="th" style="background-image:url('${ph.thumb}')"></div>`:`<div class="ic" style="background:${catBg(p)}">${catIcon(p)}</div>`}<div style="flex:1;min-width:0"><div style="display:flex;gap:8px;align-items:flex-start"><h3>${esc(p.name)}</h3><span class="price">${p.price?fmt(p.price):'TBA'}</span></div><div class="sub">${esc(p.area)}</div><div class="row"><span class="fit ${fitCls(p.fit)}">Fit ${p.fit}</span>${p.shortlist?'<span class="tag gold">Shortlist</span>':p.premium?'<span class="tag sea">€3–10M sea view</span>':''}<span class="tag">${esc(p.category)}</span><span class="tag navy">${esc(p.delivery)}</span>${(p.terraceMax||0)>=60?`<span class="tag green">Terrace ${p.terraceMax} m²</span>`:''}${p.precise?'':'<span class="tag warn">◌ approx.</span>'}</div></div></div>`;}).join('')||'<div class="note" style="padding:10px">No projects match these filters.</div>';}
  const sc=D.schools.filter(s=>match(s,['name','area','curriculum']));
  if(st.layers.schools&&sc.length){h+='<div class="section-label">International schools</div>'+sc.map(s=>`<div class="card" data-r="school/${s.id}"><div class="ic" style="background:#2f7d5b">🎓</div><div style="flex:1"><h3>#${s.rank} ${esc(s.name)}</h3><div class="sub">${esc(s.area)} · ages ${esc(s.ages)}</div><div class="row"><span class="fit sch">${esc(s.badge)}</span><span class="tag green">${esc(s.curriculum.split(/[,(]/)[0])}</span></div></div></div>`).join('');}
  const zs=D.zones.filter(z=>match(z,['name','detail']));
@@ -127,13 +139,14 @@ function heroHtml(cls,crumbs,title,loc,price,priceLbl,tags,photos,credit,icon){
  return `<div class="dhero ${cls} ${ph?'photo':''}" ${ph?`style="background-image:linear-gradient(180deg,rgba(10,25,40,.45) 0%,rgba(10,25,40,.35) 35%,rgba(10,25,40,.92) 100%),url('${ph.src}')"`:''}><button class="close" aria-label="Close" onclick="location.hash='#/'">✕</button>${!ph&&icon?`<div class="phbig">${icon}<span>No project photo published</span></div>`:''}<div class="crumbs">${crumbs}</div><h2>${esc(title)}</h2><div class="loc">${esc(loc)}</div>${price?`<div class="bigprice"><small>${priceLbl}</small>${esc(price)}</div>`:''}<div class="htags">${tags.filter(Boolean).map(t=>`<span>${esc(t)}</span>`).join('')}</div>${ph?`<div class="hcredit">Photo: ${esc(credit)}</div>`:''}</div>${photos&&photos.length>1?`<div class="gallery">${photos.map((x,i)=>`<img src="${x.thumb}" data-src="${x.src}" class="${i?'':'on'}" alt="Photo ${i+1}">`).join('')}</div>`:''}`;}
 function scoreSec(p){return `<div class="dsec"><h4>Fit score <span class="fit ${fitCls(p.fit)} big">${p.fit} / 10</span></h4>${p.fitParts.map(c=>`<div class="sbar"><div class="sl"><span>${esc(c.k)}</span><b>${c.v} / ${c.max}</b></div><div class="track"><i style="width:${100*c.v/c.max}%"></i></div><div class="sw2">${esc(c.why)}</div></div>`).join('')}<p class="note" style="margin-top:8px">Computed by this map from your brief; not third-party data. <a href="#" onclick="document.getElementById('info').classList.add('open');return false">How it works</a></p></div>`;}
 function viewProject(p){
- const cls=p.shortlist?'gold':p.category==='Branded residences'?'plum':'';
- let h=heroHtml(cls,(p.shortlist?'Shortlist ≤ €3M · ':'Pipeline · ')+esc(p.category),p.name,p.area,p.priceText,p.shortlist?'Price':'Entry price',['Fit '+p.fit+'/10','Delivery '+p.delivery,p.sea?'Sea view':'',p.gated&&!isNS(p.gated)?'Gated':'',p.precise?'':'Approx. location'],p.photos,p.photoCredit,catIcon(p));
+ const cls=p.shortlist?'gold':p.category==='Branded residences'?'plum':p.premium?'sea':'';
+ let h=heroHtml(cls,tierLbl(p)+' · '+esc(p.category),p.name,p.area,p.priceText,p.shortlist||p.premium?'Price':'Entry price',['Fit '+p.fit+'/10','Delivery '+p.delivery,p.sea&&/^yes/i.test(p.sea)?'Sea view':'',p.gated&&!isNS(p.gated)?'Gated':'',p.precise?'':'Approx. location'],p.photos,p.photoCredit,catIcon(p));
  h+=bigWeb(p.url,'Visit project website',p.urlKind+' on '+p.urlHost);
  h+=`<div class="dsec"><h4>Key facts</h4><div class="facts">${fact('Developer',p.developer)}${fact('Type',p.kind)}${fact('Units',p.units)}${fact('Delivery',p.delivery)}`;
- if(p.shortlist){h+=fact('Size / plot / pool',p.size,1)+fact('Terrace',p.terrace)+fact('Sea view',p.sea)+fact('Gated / security',p.gated)+fact('Pipeline entry price',p.entryPrice)+fact('Nearest top school (Page)',p.school,1)+fact('Notes',p.note,1);}
+ if(p.premium){h+=fact('Price range',p.priceText)+fact('Size / plot / pool',p.size,1)+fact('Sea view',p.sea,1)+fact('Gated / security',p.gated)+fact('Area group',p.zone)+fact('Listing summary',p.note,1);}
+ else if(p.shortlist){h+=fact('Size / plot / pool',p.size,1)+fact('Terrace',p.terrace)+fact('Sea view',p.sea)+fact('Gated / security',p.gated)+fact('Pipeline entry price',p.entryPrice)+fact('Nearest top school (Page)',p.school,1)+fact('Notes',p.note,1);}
  else h+=fact('Entry price',p.priceText)+fact('Area group',p.zone);
- h+=`</div>${p.shortlist?'':'<p class="note" style="margin-top:10px">Pipeline project kept for the market picture; sea view, terrace and gating were not assessed on the Page.</p>'}</div>`;
+ h+=`</div>${p.extraLinks?`<div class="btns" style="margin-top:10px">${p.extraLinks.map(([t,u])=>`<a class="btn" target="_blank" rel="noopener" href="${esc(u)}">${esc(t)} ↗</a>`).join('')}</div>`:''}${p.shortlist?'':p.premium?'<p class="note" style="margin-top:10px">Added in the €3–10M sea-view sweep (Nov 2026). Facts are taken from the linked listing; terrace sizes were not published, developer not named on the listing.</p>':'<p class="note" style="margin-top:10px">Pipeline project kept for the market picture; sea view, terrace and gating were not assessed on the Page.</p>'}</div>`;
  h+=scoreSec(p);
  if(p.zoneObj)h+=`<div class="dsec"><h4>Hotspot</h4><div class="near"><a href="#/zone/${p.zoneObj.id}">${p.zoneObj.rank?'#'+p.zoneObj.rank+' ':''}${esc(p.zoneObj.name)}<span>${esc(p.zoneObj.label)} →</span></a></div></div>`;
  h+=`<div class="dsec near"><h4>Closest international schools (straight line)</h4>${p.nearSchools.map(s=>{const so=D.schools.find(x=>x.id===s.id);return `<a href="#/school/${s.id}">${esc(s.name)} <em>${esc(so.badge)}</em><span>${s.km} km →</span></a>`;}).join('')}</div>`;

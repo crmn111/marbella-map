@@ -22,11 +22,14 @@
     <div class="search"><input id="q" type="search" placeholder="Search projects, areas, schools…" autocomplete="off"></div>
     <section class="filters">
       <div class="frow"><label>Show</label>
-        <div class="seg" id="f-scope"><button data-v="all" class="on">All projects</button><button data-v="shortlist">Shortlist ≤ €3M</button></div></div>
+        <div class="seg" id="f-scope"><button data-v="all" class="on">All projects</button><button data-v="shortlist">Shortlist ≤ €3M</button><button data-v="premium">Sea view €3–10M</button></div></div>
       <div class="frow"><label>Type</label><div class="chips" id="f-type"></div></div>
       <div class="frow"><label>Delivery</label><div class="chips" id="f-year"></div></div>
-      <div class="frow"><label>Max price <span id="pval" class="rv"></span></label>
-        <input type="range" id="f-price" min="500000" max="13000000" step="250000" value="13000000"></div>
+      <div class="frow pricebox"><label>Price (entry / "from" price) <span id="pval" class="rv"></span></label>
+        <div class="chips presets" id="f-preset"><button data-p="0,11" >≤ €3M</button><button data-p="11,15">€3–5M</button><button data-p="15,21">€5–10M</button><button data-p="0,22" class="on">Any</button></div>
+        <div class="dual" id="dual"><div class="dtrack"><i id="dfill"></i></div><input type="range" id="f-pmin" min="0" max="22" step="1" value="0" aria-label="Minimum price"><input type="range" id="f-pmax" min="0" max="22" step="1" value="22" aria-label="Maximum price"></div>
+        <div class="dticks"><span>€0</span><span>€3M</span><span>€5M</span><span>€10M+</span></div>
+        <label class="check" style="margin-top:6px"><input type="checkbox" id="f-unknown" checked> Include projects with unpublished price <span class="rv" id="uval"></span></label></div>
       <div class="frow"><label>Min fit score <span id="fval" class="rv"></span></label>
         <input type="range" id="f-fit" min="0" max="9" step="0.5" value="0"></div>
       <div class="frow two"><label class="check"><input type="checkbox" id="f-terrace"> Terraces 60 m²+</label><label class="check"><input type="checkbox" id="f-scores" checked> Score labels on map</label><button class="infob" id="infobtn" type="button">ⓘ How scores work</button></div>
@@ -49,6 +52,7 @@
     <div class="legend" id="legend"><button class="lgx" onclick="this.parentNode.classList.toggle('min')" aria-label="Collapse legend">–</button>
       <div class="lg-title">Legend</div>
       <div><i class="pin-s gold"></i>Shortlist ≤ €3M (sea view)</div>
+      <div><i class="pin-s sea"></i>Sea-view new build €3–10M</div>
       <div><i class="pin-s navy"></i>Pipeline project</div>
       <div><i class="pin-s plum"></i>Branded residences</div>
       <div><i class="pin-s green"></i>International school</div>
@@ -62,7 +66,7 @@
       <button class="infob" onclick="document.getElementById('info').classList.add('open')">ⓘ How scores work</button>
     </div>
     <div id="info" class="info"><button id="infoclose" class="x" aria-label="Close">✕</button><h4>How the fit score works</h4><p id="infotext"></p>
-      <table><tr><td>Sea view</td><td>2.0</td></tr><tr><td>Price vs €3M budget (≤€3M full, €3–4M half, unpublished 0.5)</td><td>2.0</td></tr><tr><td>Gated / 24h security</td><td>1.0</td></tr><tr><td>Private pool or plot (0.75) + terrace ≥60 m² (0.75)</td><td>1.5</td></tr><tr><td>Delivery 2028–2030 (unknown 0.25)</td><td>1.0</td></tr><tr><td>Hotspot rating on the Page (Growth 1, Value .8, Upgrade/Optionality .6, Blue chip .5)</td><td>1.5</td></tr><tr><td>Nearest intl. school ≤5 km (≤10 km .6, ≤15 km .3)</td><td>1.0</td></tr></table>
+      <table><tr><td>Sea view</td><td>2.0</td></tr><tr><td>Price vs €3M core budget, by entry price: ≤€3M 2 · €3–5M 1.25 · €5–7.5M 0.75 · €7.5–10M 0.4 · over €10M 0 · unpublished 0.5</td><td>2.0</td></tr><tr><td>Gated / 24h security</td><td>1.0</td></tr><tr><td>Private pool or plot (0.75) + terrace ≥60 m² (0.75)</td><td>1.5</td></tr><tr><td>Delivery 2028–2030 (unknown 0.25)</td><td>1.0</td></tr><tr><td>Hotspot rating on the Page (Growth 1, Value .8, Upgrade/Optionality .6, Blue chip .5)</td><td>1.5</td></tr><tr><td>Nearest intl. school ≤5 km (≤10 km .6, ≤15 km .3)</td><td>1.0</td></tr></table>
       <p class="note">Hotspot badges show the sourced Idealista asking-price change (y/y) plus the average fit of projects in that area. School badges show each school's published headline result.</p></div>
     <button id="mobtoggle" aria-label="Toggle list">☰ List</button>
   </main>

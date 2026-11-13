@@ -104,3 +104,19 @@ input[type=range]{width:100%;accent-color:var(--navy)}#pval{color:var(--navy);te
 @media (max-width:860px){.info{bottom:auto;top:60px}.dhero.photo{min-height:240px}.gallery{padding:8px 16px}.webbar{padding:14px 16px}}
 #map.vfar .mk-x{width:16px;height:16px;font-size:8px;border-width:1.5px}
 .listhead{position:sticky;top:0;background:var(--sand);z-index:2}
+/* round 3: €3–10M sea-view tier + dual price slider */
+.pin-s.sea{background:#1f6fb2}.mk.sea .pill{background:linear-gradient(135deg,#165a93,#2a86c9);color:#fff}.dhero.sea{background:linear-gradient(135deg,#0f4c7d,#2a86c9)}.tag.sea{background:#e1eef9;color:#165a93}
+.pricebox{background:#faf7f1;border:1px solid var(--line);border-radius:12px;padding:10px 12px 8px}
+.pricebox>label{margin-bottom:8px}#pval{font-weight:700;font-size:13px}
+.presets{margin-bottom:10px}.presets button{flex:1;justify-content:center;font-weight:600}
+.dual{position:relative;height:28px}.dual .dtrack{position:absolute;left:9px;right:9px;top:12px;height:5px;border-radius:3px;background:#e2dacb}
+.dual .dtrack i{position:absolute;top:0;bottom:0;background:var(--navy);border-radius:3px}
+.dual input[type=range]{position:absolute;left:0;top:0;width:100%;height:28px;margin:0;background:none;pointer-events:none;-webkit-appearance:none;appearance:none}
+.dual input[type=range]::-webkit-slider-runnable-track{background:none;height:28px}
+.dual input[type=range]::-moz-range-track{background:none}
+.dual input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;pointer-events:auto;width:22px;height:22px;margin-top:3px;border-radius:50%;background:#fff;border:3px solid var(--navy);box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:grab}
+.dual input[type=range]::-moz-range-thumb{pointer-events:auto;width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--navy);box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:grab}
+.dticks{position:relative;height:14px;margin:0 9px;font-size:10.5px;color:var(--muted)}
+.dticks span{position:absolute;transform:translateX(-50%)}.dticks span:nth-child(1){left:0;transform:none}.dticks span:nth-child(2){left:50%}.dticks span:nth-child(3){left:68.2%}.dticks span:nth-child(4){right:0;left:auto;transform:none}
+@media (max-width:860px){.dual input[type=range]::-webkit-slider-thumb{width:28px;height:28px;margin-top:0}.dual,.dual input[type=range]{height:30px}.presets button{padding:8px 6px}}
+.stats{grid-template-columns:repeat(5,1fr);gap:6px}.stats div{padding:7px 6px}.stats span{font-size:10px;line-height:1.2;display:block}
