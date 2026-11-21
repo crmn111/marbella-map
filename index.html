@@ -70,7 +70,17 @@
       <table><tr><td>Sea view</td><td>2.0</td></tr><tr><td>Price vs €3M core budget, by entry price: ≤€3M 2 · €3–5M 1.25 · €5–7.5M 0.75 · €7.5–10M 0.4 · over €10M (ultra-prime) 0 · unpublished 0.5</td><td>2.0</td></tr><tr><td>Gated / 24h security</td><td>1.0</td></tr><tr><td>Private pool or plot (0.75) + terrace ≥60 m² (0.75)</td><td>1.5</td></tr><tr><td>Delivery 2028–2030 (unknown 0.25)</td><td>1.0</td></tr><tr><td>Hotspot rating on the Page (Growth 1, Value .8, Upgrade/Optionality .6, Blue chip .5)</td><td>1.5</td></tr><tr><td>Nearest intl. school ≤5 km (≤10 km .6, ≤15 km .3)</td><td>1.0</td></tr></table>
       <p class="note">Hotspot badges show the sourced Idealista asking-price change (y/y) plus the average fit of projects in that area. School badges show each school's published headline result.</p></div>
     <button id="mobtoggle" aria-label="Toggle list">☰ List</button>
+    <button id="swbtn" aria-label="Swipe through projects"><span>⇆</span> Swipe</button>
   </main>
+  <section id="swipe" aria-hidden="true" role="dialog" aria-label="Swipe projects">
+    <header class="swhead"><div class="swt"><b>Swipe projects</b><span id="swpos">–</span></div>
+      <div class="swctl"><div class="seg sm" id="swsort"><button data-s="fit" class="on">Score</button><button data-s="price">Price ↑</button><button data-s="price-desc">Price ↓</button></div>
+      <button id="swclose" class="swx" aria-label="Close (Esc)">✕</button></div></header>
+    <div class="swmain"><button id="swprev" class="swarr l" aria-label="Previous">‹</button>
+      <div id="swview"><div id="swtrack"></div></div>
+      <button id="swnext" class="swarr r" aria-label="Next">›</button></div>
+    <div class="swfoot">← / → keys or swipe · Esc to close · follows the active filters</div>
+  </section>
   <section id="detail" aria-hidden="true"><div class="dscroll" id="dbody"></div></section>
 </div>
 <script src="vendor/leaflet.js"></script>

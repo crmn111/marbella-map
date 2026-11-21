@@ -113,6 +113,7 @@ $('#stats').innerHTML=[[D.properties.length,'Projects'],[D.properties.filter(p=>
 const catIcon=p=>p.category==='Villa'?'⌂':p.category==='Townhouse'?'▥':p.category==='Branded residences'?'✦':'▤';
 const catBg=p=>p.shortlist?'linear-gradient(135deg,#b88a3e,#d9b56f)':p.category==='Branded residences'?'#6d3f78':p.ultra?'#1c1a17':p.premium?'#1f6fb2':'#0f2a3f';
 function render(){
+ if(typeof SW!=='undefined'&&SW.open)setTimeout(swBuild,0);
  const vp=sortP(visibleProps());layers.props.clearLayers();vp.forEach(p=>markers['project/'+p.id].addTo(layers.props));
  let h='';
  if(st.layers.props){h+=vp.map(p=>{const ph=p.photos&&p.photos[0];return `<div class="card" data-r="project/${p.id}">${ph?`<div class="th" style="background-image:url('${ph.thumb}')"></div>`:`<div class="ic" style="background:${catBg(p)}">${catIcon(p)}</div>`}<div style="flex:1;min-width:0"><div style="display:flex;gap:8px;align-items:flex-start"><h3>${esc(p.name)}</h3><span class="price">${p.price?fmt(p.price):'TBA'}</span></div><div class="sub">${esc(p.area)}</div><div class="row"><span class="fit ${fitCls(p.fit)}">Fit ${p.fit}</span>${p.shortlist?'<span class="tag gold">Shortlist</span>':p.ultra?'<span class="tag ultra">Ultra-prime €10M+</span>':p.premium?'<span class="tag sea">€3–10M sea view</span>':''}<span class="tag">${esc(p.category)}</span><span class="tag navy">${esc(p.delivery)}</span>${(p.terraceMax||0)>=60?`<span class="tag green">Terrace ${p.terraceMax} m²</span>`:''}${p.precise?'':'<span class="tag warn">◌ approx.</span>'}</div></div></div>`;}).join('')||'<div class="note" style="padding:10px">No projects match these filters.</div>';}
@@ -171,6 +172,7 @@ function viewZone(z){
 function viewPlace(s){let h=heroHtml(s.kind==='Old town'?'zone heritage':'teal',esc(s.kind),s.name,s.status,'','',[],s.photos,s.photoCredit);h+=bigWeb(s.url,s.urlLabel||'Visit website',s.urlKind);h+=`<div class="dsec"><p class="p">${esc(s.detail)}</p></div>`;return h+locSec(Object.assign({precise:true,geoNote:'Location from OpenStreetMap.'},s))+shareSec();}
 function viewTrain(){const t=D.train;return heroHtml('plum','Catalyst · '+esc(t.status),t.name,'Fuengirola – Marbella – Estepona','','',[])+bigWeb(t.url,'Read the source','News')+`<div class="dsec"><p class="p">${esc(t.detail)}</p></div>`+shareSec();}
 function route(){
+ if(/^#\/swipe/.test(location.hash)){$('#detail').classList.remove('open');openSwipe();return;} else closeSwipe(true);
  const m=location.hash.match(/^#\/(project|school|zone|place|train)\/?([\w-]*)/);const det=$('#detail');
  if(!m){det.classList.remove('open');det.setAttribute('aria-hidden','true');document.title='Marbella New-Build Atlas · Costa del Sol 2028–2030';return;}
  map.closePopup();
@@ -189,6 +191,41 @@ function route(){
  if(ll){const z=Math.max(map.getZoom(),14);const off=innerWidth>860?230:0;const pt=map.project(ll,z).subtract([off,0]);map.flyTo(map.unproject(pt,z),z,{duration:.8});
   const mk=markers[k+'/'+id];if(mk&&k==='project'&&!layers.props.hasLayer(mk))mk.addTo(layers.props);}
 }
+
+// ---------- Swipe carousel (#/swipe) — reads the same D.properties + active filters
+const SW={i:0,n:3,list:[],sort:'fit',open:false};
+const swN=()=>{const w=innerWidth;return w<640?1:w<1024?2:w<1440?3:w<1900?4:5;};
+function swList(){const a=visibleProps().slice();return SW.sort==='price'?a.sort((x,y)=>(x.price||9e12)-(y.price||9e12)):SW.sort==='price-desc'?a.sort((x,y)=>(y.priceHi||y.price||0)-(x.priceHi||x.price||0)):a.sort((x,y)=>y.fit-x.fit||(x.price||9e12)-(y.price||9e12));}
+const clip=(s,n)=>{s=String(s||'');return s.length>n?s.slice(0,n-1).replace(/\s+\S*$/,'')+'…':s;};
+function swCard(p,k){const ph=p.photos&&p.photos[0];const sea=p.sea&&/^yes/i.test(p.sea)?clip(p.sea.replace(/^yes[,:]?\s*(per [^:]+:\s*)?/i,''),120):(p.sea||'Not assessed');
+ const ter=!isNS(p.terrace)&&p.terrace?p.terrace:'';
+ return `<article class="swc ${propClass(p)}" data-k="${k}"><div class="swimg" ${ph?`data-src="${esc(ph.src)}"`:''} style="${ph?'':'background:'+catBg(p)}">${ph?'':`<span class="swph">${catIcon(p)}<small>No project photo published</small></span>`}<span class="fit ${fitCls(p.fit)} big">Fit ${p.fit}</span><span class="swtier">${esc(tierLbl(p))}</span>${p.precise?'':'<span class="swapprox">◌ approx. pin</span>'}</div>
+ <div class="swb"><h3>${esc(p.name)}</h3><div class="swa">${esc(p.area)}</div><div class="swp">${esc(p.priceText||'Price not published')}</div>
+ <dl><div><dt>Type</dt><dd>${esc(p.category)}</dd></div><div><dt>Delivery</dt><dd>${esc(clip(p.delivery,60))}</dd></div><div class="full"><dt>Sea view</dt><dd class="${/^yes/i.test(p.sea||'')?'yes':'ns'}">${esc(sea)}</dd></div><div class="full"><dt>Size</dt><dd>${esc(clip(p.size||'Not stated',110))}${ter?' · Terrace '+esc(clip(ter,50)):''}</dd></div></dl>
+ <div class="swbtn">${webBtn(p.url,'Visit project website','primary')}<a class="btn" href="#/project/${p.id}">Show on map</a></div></div></article>`;}
+function swBuild(){SW.list=swList();$('#swtrack').innerHTML=SW.list.map(swCard).join('')||'<div class="swempty">No projects match the current filters.</div>';swLayout(false);}
+function swLayout(anim){SW.n=swN();const t=$('#swtrack');t.style.setProperty('--n',SW.n);const tot=SW.list.length;
+ SW.i=Math.max(0,Math.min(SW.i-SW.i%SW.n,Math.max(0,tot-1)-((Math.max(0,tot-1))%SW.n)));
+ t.classList.toggle('anim',anim!==false);t.style.transform=`translate3d(${-SW.i*100/SW.n}%,0,0)`;
+ const e2=Math.min(SW.i+SW.n,tot);$('#swpos').textContent=tot?(e2>SW.i+1?`${SW.i+1}–${e2} of ${tot}`:`${SW.i+1} of ${tot}`):'0 of 0';
+ $('#swprev').disabled=SW.i<=0;$('#swnext').disabled=SW.i+SW.n>=tot;
+ // load current page, preload previous and next page
+ $$('#swtrack .swimg[data-src]').forEach(el=>{const k=+el.parentNode.dataset.k;if(k>=SW.i-SW.n&&k<SW.i+2*SW.n&&!el.dataset.ok){el.dataset.ok=1;el.style.backgroundImage=`url('${el.dataset.src}')`;}});
+ for(let k=SW.i+SW.n;k<SW.i+3*SW.n&&k<tot;k++){const p=SW.list[k],ph=p.photos&&p.photos[0];if(ph){const im=new Image();im.src=ph.src;}}}
+function swStep(d){const tot=SW.list.length;const ni=SW.i+d*SW.n;if(ni<0||ni>=tot)return swLayout(true);SW.i=ni;swLayout(true);}
+function openSwipe(){const o=$('#swipe');if(!SW.open){SW.open=true;SW.i=0;o.classList.add('open');o.setAttribute('aria-hidden','false');document.body.classList.add('swiping');swBuild();setTimeout(()=>$('#swnext').focus(),50);}document.title='Swipe projects · Marbella New-Build Atlas';}
+function closeSwipe(fromRoute){if(!SW.open)return;SW.open=false;const o=$('#swipe');o.classList.remove('open');o.setAttribute('aria-hidden','true');document.body.classList.remove('swiping');if(!fromRoute&&/^#\/swipe/.test(location.hash))location.hash='#/';}
+$('#swbtn').onclick=()=>{location.hash='#/swipe';};
+$('#swclose').onclick=()=>closeSwipe();
+$('#swprev').onclick=()=>swStep(-1);$('#swnext').onclick=()=>swStep(1);
+$$('#swsort button').forEach(b=>b.onclick=()=>{SW.sort=b.dataset.s;$$('#swsort button').forEach(x=>x.classList.toggle('on',x===b));SW.i=0;swBuild();});
+document.addEventListener('keydown',e=>{if(!SW.open)return;if(e.key==='ArrowRight'){e.preventDefault();swStep(1);}else if(e.key==='ArrowLeft'){e.preventDefault();swStep(-1);}else if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();closeSwipe();}},true);
+window.addEventListener('resize',()=>{if(SW.open)swLayout(false);});
+(()=>{const vp=$('#swview');let x0=null,y0=0,dx=0,lock=null,w=1;
+ vp.addEventListener('touchstart',e=>{const t=e.touches[0];x0=t.clientX;y0=t.clientY;dx=0;lock=null;w=vp.clientWidth;$('#swtrack').classList.remove('anim');},{passive:true});
+ vp.addEventListener('touchmove',e=>{if(x0==null)return;const t=e.touches[0];const ddx=t.clientX-x0,ddy=t.clientY-y0;if(lock==null&&(Math.abs(ddx)>8||Math.abs(ddy)>8))lock=Math.abs(ddx)>Math.abs(ddy)?'x':'y';if(lock!=='x')return;dx=ddx;$('#swtrack').style.transform=`translate3d(calc(${-SW.i*100/SW.n}% + ${dx}px),0,0)`;},{passive:true});
+ vp.addEventListener('touchend',()=>{if(x0==null)return;x0=null;if(lock==='x'&&Math.abs(dx)>Math.min(60,w*.15))swStep(dx<0?1:-1);else swLayout(true);});
+})();
 function go(k,id){location.hash='#/'+k+'/'+id;}
 window.addEventListener('hashchange',route);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('#info').classList.remove('open');if(location.hash.length>2)location.hash='#/';}});
