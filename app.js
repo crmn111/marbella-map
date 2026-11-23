@@ -280,7 +280,7 @@ addEventListener('hashchange',lbClose);
 // ---------- Detail lead-photo carousel: crossfade + Ken Burns, dots/arrows/swipe, pauses (hover, lightbox, hidden tab, closed panel)
 const RM=matchMedia('(prefers-reduced-motion: reduce)');
 const CAR={list:[],i:0,t:null,el:null,acc:0,hover:false,busy:false,kb:0,title:'',credit:''};
-const CAR_MS=5000,CAR_TICK=200;
+const CAR_MS=3500,CAR_TICK=100;
 function carStop(){if(CAR.t){clearInterval(CAR.t);CAR.t=null;}CAR.el=null;CAR.list=[];CAR.busy=false;}
 function carPaused(){const det=document.getElementById('detail');return RM.matches||CAR.hover||LB.open||document.hidden||!det||!det.classList.contains('open')||!CAR.el||!document.body.contains(CAR.el);}
 function carInit(list,title,credit){carStop();const gal=lbQ('#dbody .gal');if(!gal)return;
