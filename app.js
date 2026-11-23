@@ -155,7 +155,7 @@ function viewProject(p){
  h+=`<div class="dsec near"><h4>Closest international schools (straight line)</h4>${p.nearSchools.map(s=>{const so=D.schools.find(x=>x.id===s.id);return `<a href="#/school/${s.id}">${esc(s.name)} <em>${esc(so.badge)}</em><span>${s.km} km →</span></a>`;}).join('')}</div>`;
  const amen=[];POIL.forEach(g=>{if(!g.near)return;let best=null;g.items.forEach(x=>{const d=hav(p.lat,p.lng,x.lat,x.lng);if(!best||d<best[0])best=[d,x];});if(best)amen.push([g,best]);});
  if(amen.length)h+=`<div class="dsec near"><h4>Nearest amenities (straight line)</h4>${amen.map(([g,[d,x]])=>`<a href="#" data-ll="${x.lat},${x.lng}">${g.icon} ${esc(x.name)} <em>${esc(g.short||g.name)}</em><span>${d.toFixed(1)} km</span></a>`).join('')}</div>`;
- h+=locSec(p)+shareSec()+`<div class="dsec note">Prices exclude 10% VAT and 1.2% stamp duty unless stated. Sea views and terrace sizes as claimed by developers/agents; confirm per unit. Photos © their publishers (${esc(p.photoCredit)}), shown for reference. Research as of ${esc(D.updated)}.</div>`;
+ h+=locSec(p)+shareSec()+`<div class="dsec note">Prices exclude 10% VAT and 1.2% stamp duty unless stated. Sea views and terrace sizes as claimed by developers/agents; confirm per unit. Photos © their publishers (${phSrc(p)}), shown for reference. Research as of ${esc(D.updated)}.</div>`;
  return h;}
 function viewSchool(s){
  let h=heroHtml('green','International school · ranked #'+s.rank,s.name,s.area,s.badge,'Key result',['Ages '+s.ages,s.precise?'':'Approx. location'],s.photos,s.photoCredit,'🎓');
@@ -171,6 +171,7 @@ function viewZone(z){
  const ps=D.properties.filter(p=>p.zoneObj===z);
  if(z.tone!=='heritage')h+=`<div class="dsec near"><h4>Projects in this area (${ps.length})</h4>${ps.map(p=>`<a href="#/project/${p.id}">${esc(p.name)}${p.shortlist?' ★':''} <em>fit ${p.fit}</em><span>${p.price?fmt(p.price):'TBA'} →</span></a>`).join('')||'<p class="note">None mapped inside this outline.</p>'}</div>`;
  return h+`<div class="dsec note">Outline is hand-drawn for orientation only, not an official boundary.${z.rank?' Price data: Idealista asking prices, Sept 2026 (published Oct 2026). Avg fit = mean of the computed fit scores of projects in this area.':''}</div>`+shareSec();}
+function phSrc(p){const pg=[...new Set((p.photos||[]).map(x=>x.page).filter(Boolean))];return pg.length?pg.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a>`).join(', '):esc(p.photoCredit);}
 function viewPlace(s){let h=heroHtml(s.kind==='Old town'?'zone heritage':'teal',esc(s.kind),s.name,s.status,'','',[],s.photos,s.photoCredit);h+=bigWeb(s.url,s.urlLabel||'Visit website',s.urlKind);h+=`<div class="dsec"><p class="p">${esc(s.detail)}</p></div>`;return h+locSec(Object.assign({precise:true,geoNote:'Location from OpenStreetMap.'},s))+shareSec();}
 function viewTrain(){const t=D.train;return heroHtml('plum','Catalyst · '+esc(t.status),t.name,'Fuengirola – Marbella – Estepona','','',[])+bigWeb(t.url,'Read the source','News')+`<div class="dsec"><p class="p">${esc(t.detail)}</p></div>`+shareSec();}
 function route(){
