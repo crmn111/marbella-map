@@ -136,14 +136,13 @@ const fact=(k,v,full)=>`<div class="fact ${full?'full':''}"><div class="k">${k}<
 const gmaps=(lat,lng)=>`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 const locSec=o=>`<div class="dsec"><h4>Location</h4><p class="note">${o.precise?'<span class="tag green">Exact / listing location</span>':'<span class="tag warn">◌ Approximate location</span>'} ${esc(o.geoNote)}<br>${o.lat.toFixed(5)}, ${o.lng.toFixed(5)}</p><div class="btns" style="margin-top:10px"><a class="btn" target="_blank" rel="noopener" href="${gmaps(o.lat,o.lng)}">Open in Google Maps ↗</a><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${o.lat},${o.lng}">Directions ↗</a></div></div>`;
 const shareSec=()=>`<div class="dsec"><div class="btns"><button class="btn" id="copy">🔗 Copy link to this page</button></div></div>`;
-const webFoot=(u,label,kind,extra)=>u||extra?`<div class="dsec webfoot"><h4>Website &amp; sources</h4>${u?`<p class="wf">${esc(label)}: <a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,''))} ↗</a>${kind?` <span class="note">· ${esc(kind)}</span>`:''}</p>`:''}${extra||''}</div>`:'';
+const webFoot=(u,label,kind,extra)=>u||extra?`<div class="dsec webfoot"><h4>Website &amp; sources</h4>${u?`<a class="btn web xl" href="${esc(u)}" target="_blank" rel="noopener">${/website/i.test(label)?'Visit '+esc(label.toLowerCase()):'Open '+esc(label.toLowerCase())} ↗</a><p class="wf">${kind?esc(kind)+' · ':''}<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,''))}</a></p>`:''}${extra||''}</div>`:'';
 const bigWeb=(u,label,kind)=>u?`<div class="webbar"><a class="btn web xl" href="${esc(u)}" target="_blank" rel="noopener">${label} ↗</a><div class="wurl">${kind?esc(kind)+' · ':''}<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></div></div>`:'';
 function galHtml(photos,credit){const P=photos||[];if(!P.length)return '';const n=P.length;
- const lead=`<button class="gi lead" data-i="0" aria-label="Open photo 1 of ${n}"><img src="${P[0].src}" alt="Photo 1" decoding="async" onload="this.classList.add('ld')">${n>1?`<span class="gcount">▦ ${n} photos</span>`:'<span class="gcount">⤢ View photo</span>'}</button>`;
- let rest=P.slice(1),more=0;if(n>=4&&rest.length>4){more=rest.length-4;rest=rest.slice(0,4);}
- const th=rest.map((x,j)=>`<button class="gi" data-i="${j+1}" aria-label="Open photo ${j+2} of ${n}"><img src="${n<=3?x.src:x.thumb}" alt="Photo ${j+2}" loading="lazy" decoding="async" onload="this.classList.add('ld')">${more&&j===rest.length-1?`<span class="gmore">+${more}</span>`:''}</button>`).join('');
- const cls=n===1?'g1':n===2?'g2':n===3?'g3':'g4';
- return `<div class="gal ${cls}" style="--gc:${Math.min(4,n-1)}">${cls==='g4'?lead+`<div class="gthumbs">${th}</div>`:lead+th}</div>`;}
+ if(n===1)return `<div class="gal g1"><button class="gi lead" data-i="0" aria-label="Open photo"><img class="cs on" src="${P[0].src}" alt="Photo 1" decoding="async" onload="this.classList.add('ld')"><span class="gcount">⤢ View photo</span></button></div>`;
+ const lead=`<div class="gi lead car" data-i="0" role="button" tabindex="0" aria-roledescription="carousel" aria-label="Photo 1 of ${n}, click to enlarge"><img class="cs on kb0" src="${P[0].src}" alt="Photo 1" decoding="async" onload="this.classList.add('ld')"><img class="cs" alt="" decoding="async" aria-hidden="true"><button class="cnav cprev" aria-label="Previous photo">‹</button><button class="cnav cnext" aria-label="Next photo">›</button><div class="cdots" role="tablist">${P.map((x,k)=>`<button class="cdot${k?'':' on'}" data-i="${k}" aria-label="Show photo ${k+1}"></button>`).join('')}</div><span class="gcount">▦ ${n} photos</span></div>`;
+ const th=P.map((x,k)=>`<button class="gt${k?'':' on'}" data-i="${k}" aria-label="Show photo ${k+1} of ${n}"><img src="${x.thumb}" alt="Photo ${k+1}" loading="lazy" decoding="async" onload="this.classList.add('ld')"></button>`).join('');
+ return `<div class="gal gc">${lead}<div class="gstrip" style="--gn:${Math.min(n,6)}">${th}</div></div>`;}
 function heroHtml(cls,crumbs,title,loc,price,priceLbl,tags,photos,credit,icon){
  const ph=photos&&photos[0];
  return `<div class="dtop ${ph?'hasgal':''}"><button class="close" aria-label="Close" onclick="location.hash='#/'">✕</button>${galHtml(photos,credit)}<div class="dhero ${cls}">${!ph&&icon?`<div class="phbig">${icon}<span>No project photo published</span></div>`:''}<div class="crumbs">${crumbs}</div><h2>${esc(title)}</h2><div class="loc">${esc(loc)}</div>${price?`<div class="bigprice"><small>${priceLbl}</small>${esc(price)}</div>`:''}<div class="htags">${tags.filter(Boolean).map(t=>`<span>${esc(t)}</span>`).join('')}</div>${ph?`<div class="hcredit">Photos: ${esc(credit)}</div>`:''}</div></div>`;}
@@ -188,7 +187,7 @@ function viewTrain(){const t=D.train;return heroHtml('plum','Catalyst · '+esc(t
 function route(){
  if(/^#\/swipe/.test(location.hash)){$('#detail').classList.remove('open');openSwipe();return;} else closeSwipe(true);
  const m=location.hash.match(/^#\/(project|school|zone|place|train)\/?([\w-]*)/);const det=$('#detail');
- if(!m){det.classList.remove('open');det.setAttribute('aria-hidden','true');document.title='Marbella New-Build Atlas · Costa del Sol 2028–2030';return;}
+ if(!m){setTimeout(carStop,0);det.classList.remove('open');det.setAttribute('aria-hidden','true');document.title='Marbella New-Build Atlas · Costa del Sol 2028–2030';return;}
  map.closePopup();
  const [,k,id]=m;let h='',ll=null,title='';
  if(k==='project'){const p=D.properties.find(x=>x.id===id);if(p){h=viewProject(p);ll=[p.lat,p.lng];title=p.name;}}
@@ -201,14 +200,14 @@ function route(){
  $('#dbody').innerHTML=h;$('#dbody').scrollTop=0;det.classList.add('open');det.setAttribute('aria-hidden','false');document.title=title+' · Marbella New-Build Atlas';
  const cp=$('#copy');if(cp)cp.onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(location.href);cp.textContent='✓ Link copied';};
  const galP=k==='project'?(D.properties.find(x=>x.id===id)||{}):k==='school'?(D.schools.find(x=>x.id===id)||{}):k==='place'?(D.pois.find(x=>x.id===id)||{}):k==='zone'?(D.zones.find(x=>x.id===id)||{}):{};
- $$('#dbody .gal .gi').forEach(b=>b.onclick=()=>lbOpen(galP.photos||[],+b.dataset.i,title,galP.photoCredit));
+ setTimeout(()=>carInit(galP.photos||[],title,galP.photoCredit),0);
  $$('#dbody a[data-ll]').forEach(a=>a.onclick=e=>{e.preventDefault();const [la,ln]=a.dataset.ll.split(',').map(Number);map.flyTo([la,ln],15);});
  if(ll){const z=Math.max(map.getZoom(),14);const off=innerWidth>860?Math.round(dw/2):0;const pt=map.project(ll,z).subtract([off,0]);map.flyTo(map.unproject(pt,z),z,{duration:.8});
   const mk=markers[k+'/'+id];if(mk&&k==='project'&&!layers.props.hasLayer(mk))mk.addTo(layers.props);}
 }
 
 // ---------- Swipe carousel (#/swipe) — reads the same D.properties + active filters
-const SW={i:0,n:3,list:[],sort:'fit',open:false};
+const SW={i:0,n:3,list:[],sort:'fit',open:false};window.SW=SW;
 const swN=()=>{const w=innerWidth;return w<640?1:w<1024?2:w<1440?3:w<1900?4:5;};
 function swList(){const a=visibleProps().slice();return SW.sort==='price'?a.sort((x,y)=>(x.price||9e12)-(y.price||9e12)):SW.sort==='price-desc'?a.sort((x,y)=>(y.priceHi||y.price||0)-(x.priceHi||x.price||0)):a.sort((x,y)=>y.fit-x.fit||(x.price||9e12)-(y.price||9e12));}
 const clip=(s,n)=>{s=String(s||'');return s.length>n?s.slice(0,n-1).replace(/\s+\S*$/,'')+'…':s;};
@@ -277,3 +276,52 @@ function lbOpen(list,i,title,credit){if(!list.length)return;Object.assign(LB,{li
 function lbClose(){if(!LB.open)return;LB.open=false;const d=lbQ('#lb');d.classList.remove('open');d.setAttribute('aria-hidden','true');document.body.classList.remove('lbopen');}
 function lbGo(d){const n=LB.list.length;if(n<2)return;LB.i=(LB.i+d+n)%n;lbShow();}
 addEventListener('hashchange',lbClose);
+
+// ---------- Detail lead-photo carousel: crossfade + Ken Burns, dots/arrows/swipe, pauses (hover, lightbox, hidden tab, closed panel)
+const RM=matchMedia('(prefers-reduced-motion: reduce)');
+const CAR={list:[],i:0,t:null,el:null,acc:0,hover:false,busy:false,kb:0,title:'',credit:''};
+const CAR_MS=5000,CAR_TICK=200;
+function carStop(){if(CAR.t){clearInterval(CAR.t);CAR.t=null;}CAR.el=null;CAR.list=[];CAR.busy=false;}
+function carPaused(){const det=document.getElementById('detail');return RM.matches||CAR.hover||LB.open||document.hidden||!det||!det.classList.contains('open')||!CAR.el||!document.body.contains(CAR.el);}
+function carInit(list,title,credit){carStop();const gal=lbQ('#dbody .gal');if(!gal)return;
+ const lead=gal.querySelector('.gi.lead');CAR.title=title;CAR.credit=credit;
+ if(!lead)return;
+ if(list.length<2){lead.onclick=()=>lbOpen(list,0,title,credit);return;}
+ Object.assign(CAR,{list,i:0,el:lead,acc:0,hover:false,busy:false,kb:0});
+ lead.onclick=e=>{if(e.target.closest('.cnav,.cdot'))return;if(Date.now()-(CAR.swiped||0)<450)return;lbOpen(CAR.list,CAR.i,CAR.title,CAR.credit);};
+ lead.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();lbOpen(CAR.list,CAR.i,CAR.title,CAR.credit);}};
+ lead.querySelector('.cprev').onclick=e=>{e.stopPropagation();carGo(CAR.i-1);};
+ lead.querySelector('.cnext').onclick=e=>{e.stopPropagation();carGo(CAR.i+1);};
+ lbAll('#dbody .gal .cdot').forEach(d=>d.onclick=e=>{e.stopPropagation();carGo(+d.dataset.i);});
+ lbAll('#dbody .gal .gt').forEach(t=>t.onclick=()=>carGo(+t.dataset.i));
+ lead.addEventListener('mouseenter',()=>{CAR.hover=true;});lead.addEventListener('mouseleave',()=>{CAR.hover=false;});
+ let x0=null,y0=0;lead.addEventListener('touchstart',e=>{const t=e.touches[0];x0=t.clientX;y0=t.clientY;},{passive:true});
+ lead.addEventListener('touchend',e=>{if(x0==null)return;const t=e.changedTouches[0],dx=t.clientX-x0,dy=t.clientY-y0;x0=null;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.2){CAR.swiped=Date.now();carGo(CAR.i+(dx<0?1:-1));}},{passive:true});
+ carPreload(1);
+ CAR.t=setInterval(()=>{if(carPaused())return;CAR.acc+=CAR_TICK;if(CAR.acc>=CAR_MS)carGo(CAR.i+1,true);},CAR_TICK);}
+function carPreload(k){const n=CAR.list.length;const x=CAR.list[(k%n+n)%n];if(x){const im=new Image();im.decoding='async';im.src=x.src;}}
+function carGo(k,auto){const n=CAR.list.length;if(n<2||!CAR.el)return;k=(k%n+n)%n;CAR.acc=0;if(k===CAR.i||CAR.busy)return;
+ const el=CAR.el,cur=el.querySelector('.cs.on'),nxt=[...el.querySelectorAll('.cs')].find(x=>x!==cur);const x=CAR.list[k];CAR.busy=true;
+ const swap=()=>{if(CAR.el!==el){CAR.busy=false;return;}
+  CAR.kb=(CAR.kb+1)%4;nxt.className='cs ld'+(RM.matches?'':' kb'+CAR.kb);void nxt.offsetWidth;nxt.classList.add('on');nxt.alt='Photo '+(k+1);nxt.removeAttribute('aria-hidden');
+  cur.classList.remove('on');cur.setAttribute('aria-hidden','true');cur.alt='';
+  CAR.i=k;el.dataset.i=k;el.setAttribute('aria-label',`Photo ${k+1} of ${n}, click to enlarge`);
+  lbAll('#dbody .gal .cdot').forEach(d=>d.classList.toggle('on',+d.dataset.i===k));
+  lbAll('#dbody .gal .gt').forEach(t=>{const on=+t.dataset.i===k;t.classList.toggle('on',on);if(on&&!auto){}});
+  const at=lbQ('#dbody .gal .gt.on'),st=lbQ('#dbody .gal .gstrip');if(at&&st&&st.scrollWidth>st.clientWidth){st.scrollTo({left:at.offsetLeft-st.clientWidth/2+at.offsetWidth/2,behavior:RM.matches?'auto':'smooth'});}
+  setTimeout(()=>{CAR.busy=false;},RM.matches?60:700);carPreload(k+1);};
+ nxt.onload=null;
+ if(nxt.getAttribute('src')===x.src&&nxt.complete&&nxt.naturalWidth){swap();return;}
+ nxt.src=x.src;(nxt.decode?nxt.decode():Promise.resolve()).then(swap,swap);}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)CAR.acc=0;});
+// ---------- Swipe cards: gentle photo rotation on hover (desktop pointers only)
+(function(){let cur=null,timer=null;
+ function stop(){if(timer){clearInterval(timer);timer=null;}if(cur){const c=cur;cur=null;const im=c.querySelector('.swimg');const p=SW.list[+c.dataset.k];if(im&&p&&p.photos&&p.photos[0]&&im.dataset.ok)fade(im,p.photos[0].src);}}
+ function fade(im,src){let l=im.querySelector('.swl');if(!l){l=document.createElement('div');l.className='swl';im.prepend(l);}
+  const pre=new Image();pre.onload=()=>{l.style.backgroundImage=`url('${src}')`;l.classList.remove('snap');void l.offsetWidth;l.classList.add('on');
+   setTimeout(()=>{im.style.backgroundImage=`url('${src}')`;l.classList.add('snap');l.classList.remove('on');},750);};pre.src=src;}
+ document.addEventListener('pointerover',e=>{if(e.pointerType!=='mouse'||RM.matches||!SW.open)return;const c=e.target.closest&&e.target.closest('#swtrack .swc');if(c===cur)return;stop();if(!c)return;
+  const p=SW.list[+c.dataset.k];if(!p||!p.photos||p.photos.length<2)return;cur=c;let i=0;const im=c.querySelector('.swimg');
+  const pre=new Image();pre.src=p.photos[1].src;
+  timer=setInterval(()=>{if(cur!==c||!SW.open){stop();return;}i=(i+1)%p.photos.length;fade(im,p.photos[i].src);const nx=new Image();nx.src=p.photos[(i+1)%p.photos.length].src;},2200);});
+ document.addEventListener('mouseleave',stop);addEventListener('hashchange',stop);})();
