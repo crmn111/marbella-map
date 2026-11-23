@@ -8,7 +8,7 @@ The map, list, filters, Swipe carousel (#/swipe) and KML all read `window.MAPDAT
 - `category`: one of `Villa`, `Townhouse`, `Apartment / penthouse`, `Branded residences` (pin colour / list label)
 - `unitTypes` (array, optional): unit types the project offers, from `Villa`, `Townhouse`, `Apartment`, `Penthouse`, `Branded residences`.
   enrich.py always adds the type implied by `category` (`Apartment / penthouse` → `Apartment`). The Type filter matches on this array, so a project with apartments and penthouses matches both filters.
-- `penthouse` (object, optional) — set ONLY when a source explicitly mentions penthouse units (never guess):
+- `penthouse` (object, optional) — **since 23 Nov 2026 derived from live availability** (see “Availability” below): enrich.py sets it only when at least one penthouse is currently available in a dated source, and otherwise removes it and writes `penthouseSoldOut` (text). The format below (and `_build/penthouse.json`) is still read first, but the availability step overrides it:
   ```json
   "penthouse": {"price": 2900000, "priceText": "€2,900,000 ex VAT (duplex penthouse)", "size": "266 m²", "terrace": "167 m²",
                 "note": "unit mix", "source": "Agent listing", "sourceUrl": "https://…", "quote": "short quote mentioning the penthouse"}
@@ -34,3 +34,36 @@ All project photos are stored in the repo, never hotlinked: `img/projects/{id}-{
 **Adding photos to a new project (routine additions):** put `"photoUrls": [["<imageUrl>", "<pageUrl>"], ...]` on the project in `data.json`, or an entry in `_build/photo_sources.json` (`{"<id>": [[imageUrl, pageUrl], ...]}`). The next `python3 enrich.py` downloads them with a browser User-Agent and the page as Referer. It keeps up to 4 images, skips images smaller than 500×300 and near-duplicates, and saves them in the format above (`_build/selfhost.py`). enrich.py also re-downloads any local photo whose file has gone missing, using its `orig` URL, and prints `WARN no photos: <id>` for projects that still have none.
 
 Source order: the official project site first, then the developer's site, then agent listings (Idealista, Kyero, Roccabox, Engel & Völkers, Sotheby's, marbella.live). **Only use images that clearly show this project.** Agent pages often embed "similar developments" thumbnails, so check that the URL belongs to this listing's own gallery/JSON-LD and not a "similar" block. Never use stock photos, maps, logos or people shots. If nothing qualifies, leave the project without photos; the UI shows a placeholder.
+
+## Availability (live units, Penthouse tag)
+
+Files: `../availability.json` (full unit tables, keyed by project id) and `../availability.js` (same data as `window.AVAIL`; the site loads it only when the Availability panel opens). Built by `_build/refresh_availability.py`; `enrich.py` then calls `_build/availability_apply.py`, which writes a compact `avail` summary on each project in `data.js` and re-derives the Penthouse tag.
+
+**Refresh (Monday/Thursday routine, before enrich.py):**
+```bash
+cd /workspace/marbella-map/_build && python3 refresh_availability.py && python3 enrich.py && python3 kml.py
+```
+`python3 refresh_availability.py --only <id> [<id> …]` refreshes some projects and keeps the rest; `--offline` re-parses the cached pages in `_build/avail_cache/`. A source that fails to load keeps the previous record (marked `stale`). The script prints the count per level; review projects whose counts change a lot before publishing.
+
+Inputs:
+- `_build/availability_sources.json`: `{"<id>": {"sources": [{"label": "...", "urls": ["..."]}], "manual": false, "typeHints": [...]}}`. Sources are tried in order; the **first one that returns a unit list is primary** (used for the table and counts), the others are kept as cross-checks. Several `urls` in one source are combined (e.g. two villa pages). Order used: developer site → WeSellHomes dated price list → Santina Homes → Roccabox. Parsers (in `availability_lib.py`, chosen by host): `wesellhomes.es`, `santinahomes.com`, `roccabox.com` (unit table + "Available X of Y"; pages with no table count as "listed"), `alianzgroup.es`, `engelvoelkers.com` projects, `nuevaliving.com`.
+- `_build/availability_manual.json`: hand-checked entries for sites that block scripts or publish no list (Lucas Fox, developer pages with JS widgets, single listings). Used when the project has `"manual": true`; `notes` are always merged. **Every unit and price must come from the cited `source.url`; update `asOf` when you re-check.**
+- Penthouse detection: a unit is a penthouse when its source labels it so (Penthouse / Ático / PH, the WeSellHomes "Penthouses" group, Roccabox "PH" ids or floor "AT"). If another source labels the same unit (same id, or same price and beds) a penthouse, the label is copied with `typeFrom` explaining why. `typeHints` match units by beds + built m² to a type list (e.g. Arevont).
+
+Per project in `availability.json`:
+```json
+{"level": "unit | project | unknown", "available": 13, "total": 46, "reserved": 0, "sold": 0,
+ "lastChecked": "2026-11-23", "summary": "13 available of 46", "priceMin": 705000, "priceMax": 1570000,
+ "units": [{"id": "AO-53A", "type": "Penthouse", "label": "Penthouses", "beds": 3, "built": 148, "terrace": 147,
+            "floor": "Entrance 5 · Floor 3", "price": 1570000, "status": "available", "src": "https://…", "typeFrom": "…"}],
+ "sources": [{"label": "WeSellHomes price list", "url": "https://…", "asOf": "2026-11-20", "checked": "2026-11-23", "available": 13, "primary": true}],
+ "penthouse": {"available": 6, "priceMin": 1095000, "priceMax": 1570000, "evidence": [], "basis": "unit list"},
+ "notes": ["conflicts between sources, etc."]}
+```
+- `unit` = a unit list with statuses; `project` = only a count/summary (or a few agent listings); `unknown` = nothing published.
+- Unit `type`: `Apartment`, `Ground floor`, `Penthouse`, `Townhouse`, `Semi-detached`, `Villa`. `status`: `available`, `reserved`, `sold`. Areas in m², prices in € as published (usually excluding VAT).
+- `penthouse.evidence`: agent listings that show an available penthouse where no unit list exists (project-level).
+
+Compact `avail` in `data.js` (badges, filters): `level, available, total, summary, lastChecked, asOf, priceMin, priceMax, ph, phMin, phMax, soldOut, source, sourceUrl`.
+
+UI: the project detail has an **Availability** section with a button that opens the third panel at `#/project/<id>/units` (beside the detail on desktop, full screen on mobile). The panel has a sortable table, type chips, an "Available units only" toggle and highlighted penthouses, or a summary for project-level data. Map popups, list cards and Swipe cards show an “N units available” badge. The price filter has an "Available units only (live prices)" option, which matches the range against available unit prices and hides sold-out projects. Code: `avail.js`, loaded before `app.js`.
