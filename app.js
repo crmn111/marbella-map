@@ -59,10 +59,10 @@ const propClass=p=>p.shortlist?'gold':p.ultra?'ultra':p.category==='Branded resi
 const tierLbl=p=>p.shortlist?'Shortlist ≤ €3M':p.ultra?'Ultra-prime €10M+':p.premium?(p.price?'Sea view €3–10M':'Luxury pipeline · price TBA'):'Pipeline';
 const webBtn=(u,label,cls)=>u?`<a class="btn web ${cls||''}" href="${esc(u)}" target="_blank" rel="noopener">${label} ↗</a>`:'';
 function popProject(p){const ph=p.photos&&p.photos[0];
- return `<div class="pop">${ph?`<img src="${ph.thumb}" alt="">`:`<div class="ph-ph sm">${catIcon(p)}</div>`}<div class="pb"><div class="pk">${tierLbl(p)} · ${esc(p.category)}${p.penthouse?' · <b class="phk">Penthouses</b>':''}</div><h3>${esc(p.name)}</h3><div class="pa">${esc(p.area)}</div><div class="pr"><b>${esc(p.priceText)}</b><span class="fit ${fitCls(p.fit)}">Fit ${p.fit}</span></div>${typeof avBadge==='function'?avBadge(p,'pop'):''}<div class="pbtn"><a class="btn sm" href="#/project/${p.id}">Details</a>${webBtn(p.url,'Visit project website','primary sm')}</div>${ph?`<div class="credit">Photo: ${esc(p.photoCredit)}</div>`:''}</div></div>`;}
+ return `<div class="pop go" role="link" tabindex="0" onclick="if(!event.target.closest('a'))location.hash='#/project/${p.id}'">${ph?`<img src="${ph.thumb}" alt="">`:`<div class="ph-ph sm">${catIcon(p)}</div>`}<div class="pb"><div class="pk">${tierLbl(p)} · ${esc(p.category)}${p.penthouse?' · <b class="phk">Penthouses</b>':''}</div><h3>${esc(p.name)}</h3><div class="pa">${esc(p.area)}</div><div class="pr"><b>${esc(p.priceText)}</b><span class="fit ${fitCls(p.fit)}">Fit ${p.fit}</span></div>${typeof avBadge==='function'?avBadge(p,'pop'):''}<div class="pbtn"><a class="btn primary vd" href="#/project/${p.id}">View details →</a></div>${ph?`<div class="credit">Photo: ${esc(p.photoCredit)}</div>`:''}</div></div>`;}
 function popSchool(s){const ph=s.photos&&s.photos[0];
- return `<div class="pop">${ph?`<img src="${ph.thumb}" alt="">`:''}<div class="pb"><div class="pk">International school · #${s.rank}</div><h3>${esc(s.name)}</h3><div class="pa">${esc(s.curriculum)}</div><div class="pr"><span class="fit sch">${esc(s.badge)}</span></div><div class="pbtn"><a class="btn sm" href="#/school/${s.id}">Details</a>${webBtn(s.site||s.url,'Visit school website','primary sm')}</div></div></div>`;}
-function popPoi(x,g){return `<div class="pop"><div class="pb"><div class="pk">${esc(g?g.name:x.kind)}</div><h3>${esc(x.name)}</h3>${x.type?`<div class="pa">${esc(x.type)}</div>`:''}${x.detail?`<p class="pd">${esc(x.detail)}</p>`:''}<div class="pbtn">${x.id&&!g?`<a class="btn sm" href="#/place/${x.id}">Details</a>`:''}${webBtn(x.url,'Website','primary sm')}${x.osm?`<a class="btn sm" href="${x.osm}" target="_blank" rel="noopener">OpenStreetMap ↗</a>`:''}</div></div></div>`;}
+ return `<div class="pop go" role="link" tabindex="0" onclick="if(!event.target.closest('a'))location.hash='#/school/${s.id}'">${ph?`<img src="${ph.thumb}" alt="">`:''}<div class="pb"><div class="pk">International school · #${s.rank}</div><h3>${esc(s.name)}</h3><div class="pa">${esc(s.curriculum)}</div><div class="pr"><span class="fit sch">${esc(s.badge)}</span></div><div class="pbtn"><a class="btn primary vd" href="#/school/${s.id}">View details →</a></div></div></div>`;}
+function popPoi(x,g){return `<div class="pop${x.id&&!g?' go':''}" ${x.id&&!g?`onclick="if(!event.target.closest('a'))location.hash='#/place/${x.id}'"`:''}><div class="pb"><div class="pk">${esc(g?g.name:x.kind)}</div><h3>${esc(x.name)}</h3>${x.type?`<div class="pa">${esc(x.type)}</div>`:''}${x.detail?`<p class="pd">${esc(x.detail)}</p>`:''}<div class="pbtn">${x.id&&!g?`<a class="btn primary vd" href="#/place/${x.id}">View details →</a>`:webBtn(x.url,'Website','sm')}${x.osm&&!(x.id&&!g)?`<a class="btn sm" href="${x.osm}" target="_blank" rel="noopener">OpenStreetMap ↗</a>`:''}</div></div></div>`;}
 function propIcon(p){return L.divIcon({className:'',html:`<div class="mk ${propClass(p)} ${p.precise?'':'approx'}"><div class="pill">${p.price?fmt(p.price)+(p.priceHi&&p.priceHi>10e6&&p.price<10e6?'+':''):'TBA'}${st.scores?`<b class="fs ${fitCls(p.fit)}">${p.fit}</b>`:''}</div></div>`,iconSize:[0,0],iconAnchor:[0,0]});}
 function schoolIcon(s){return L.divIcon({className:'',html:`<div class="mk-school ${s.precise?'':'approx'}">🎓</div>${st.scores&&!/^No results/.test(s.badge)?`<div class="sbadge">${esc(s.badge)}</div>`:''}`,iconSize:[30,30],iconAnchor:[15,15]});}
 const popOpts={maxWidth:300,minWidth:260,className:'ppop',offset:[0,-26]};
@@ -118,7 +118,7 @@ function render(){
  if(typeof SW!=='undefined'&&SW.open)setTimeout(swBuild,0);
  const vp=sortP(visibleProps());layers.props.clearLayers();vp.forEach(p=>markers['project/'+p.id].addTo(layers.props));
  let h='';
- if(st.layers.props){h+=vp.map(p=>{const ph=p.photos&&p.photos[0];return `<div class="card" data-r="project/${p.id}">${ph?`<div class="th" style="background-image:url('${ph.thumb}')"></div>`:`<div class="ic" style="background:${catBg(p)}">${catIcon(p)}</div>`}<div style="flex:1;min-width:0"><div style="display:flex;gap:8px;align-items:flex-start"><h3>${esc(p.name)}</h3><span class="price">${p.price?fmt(p.price):'TBA'}</span></div><div class="sub">${esc(p.area)}</div><div class="row"><span class="fit ${fitCls(p.fit)}">Fit ${p.fit}</span>${typeof avBadge==='function'?avBadge(p,'sm'):''}${p.shortlist?'<span class="tag gold">Shortlist</span>':p.ultra?'<span class="tag ultra">Ultra-prime €10M+</span>':p.premium?'<span class="tag sea">€3–10M sea view</span>':''}<span class="tag">${esc(p.category)}</span>${p.penthouse?'<span class="tag ph">Penthouse</span>':''}<span class="tag navy">${esc(p.delivery)}</span>${(p.terraceMax||0)>=60?`<span class="tag green">Terrace ${p.terraceMax} m²</span>`:''}${p.precise?'':'<span class="tag warn">◌ approx.</span>'}</div></div></div>`;}).join('')||'<div class="note" style="padding:10px">No projects match these filters.</div>';}
+ if(st.layers.props){h+=vp.map(p=>{const ph=p.photos&&p.photos[0];return `<div class="card" data-r="project/${p.id}">${ph?`<div class="th" style="background-image:url('${ph.thumb}')"></div>`:`<div class="ic" style="background:${catBg(p)}">${catIcon(p)}</div>`}<div style="flex:1;min-width:0"><div style="display:flex;gap:8px;align-items:flex-start"><h3>${esc(p.name)}</h3><span class="price">${p.price?fmt(p.price):'TBA'}</span></div><div class="sub">${esc(p.area)}</div><div class="row"><span class="fit ${fitCls(p.fit)}">Fit ${p.fit}</span>${typeof avBadge==='function'?avBadge(p,'sm'):''}${p.shortlist?'<span class="tag gold">Shortlist</span>':p.ultra?'<span class="tag ultra">Ultra-prime €10M+</span>':p.premium?'<span class="tag sea">€3–10M sea view</span>':''}<span class="tag">${esc(p.category)}</span>${p.penthouse?'<span class="tag ph">Penthouse</span>':''}<span class="tag navy">${esc(p.delivery)}</span>${(p.terraceMax||0)>=60?`<span class="tag green">Terrace ${p.terraceMax} m²</span>`:''}${p.precise?'':'<span class="tag warn">◌ approx.</span>'}</div></div><span class="cardgo" aria-hidden="true">›</span></div>`;}).join('')||'<div class="note" style="padding:10px">No projects match these filters.</div>';}
  const sc=D.schools.filter(s=>match(s,['name','area','curriculum']));
  if(st.layers.schools&&sc.length){h+='<div class="section-label">International schools</div>'+sc.map(s=>`<div class="card" data-r="school/${s.id}"><div class="ic" style="background:#2f7d5b">🎓</div><div style="flex:1"><h3>#${s.rank} ${esc(s.name)}</h3><div class="sub">${esc(s.area)} · ages ${esc(s.ages)}</div><div class="row"><span class="fit sch">${esc(s.badge)}</span><span class="tag green">${esc(s.curriculum.split(/[,(]/)[0])}</span></div></div></div>`).join('');}
  const zs=D.zones.filter(z=>match(z,['name','detail']));
@@ -136,15 +136,26 @@ const fact=(k,v,full)=>`<div class="fact ${full?'full':''}"><div class="k">${k}<
 const gmaps=(lat,lng)=>`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 const locSec=o=>`<div class="dsec"><h4>Location</h4><p class="note">${o.precise?'<span class="tag green">Exact / listing location</span>':'<span class="tag warn">◌ Approximate location</span>'} ${esc(o.geoNote)}<br>${o.lat.toFixed(5)}, ${o.lng.toFixed(5)}</p><div class="btns" style="margin-top:10px"><a class="btn" target="_blank" rel="noopener" href="${gmaps(o.lat,o.lng)}">Open in Google Maps ↗</a><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${o.lat},${o.lng}">Directions ↗</a></div></div>`;
 const shareSec=()=>`<div class="dsec"><div class="btns"><button class="btn" id="copy">🔗 Copy link to this page</button></div></div>`;
+const webFoot=(u,label,kind,extra)=>u||extra?`<div class="dsec webfoot"><h4>Website &amp; sources</h4>${u?`<p class="wf">${esc(label)}: <a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,''))} ↗</a>${kind?` <span class="note">· ${esc(kind)}</span>`:''}</p>`:''}${extra||''}</div>`:'';
 const bigWeb=(u,label,kind)=>u?`<div class="webbar"><a class="btn web xl" href="${esc(u)}" target="_blank" rel="noopener">${label} ↗</a><div class="wurl">${kind?esc(kind)+' · ':''}<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></div></div>`:'';
+function galHtml(photos,credit){const P=photos||[];if(!P.length)return '';const n=P.length;
+ const lead=`<button class="gi lead" data-i="0" aria-label="Open photo 1 of ${n}"><img src="${P[0].src}" alt="Photo 1" decoding="async" onload="this.classList.add('ld')">${n>1?`<span class="gcount">▦ ${n} photos</span>`:'<span class="gcount">⤢ View photo</span>'}</button>`;
+ let rest=P.slice(1),more=0;if(n>=4&&rest.length>4){more=rest.length-4;rest=rest.slice(0,4);}
+ const th=rest.map((x,j)=>`<button class="gi" data-i="${j+1}" aria-label="Open photo ${j+2} of ${n}"><img src="${n<=3?x.src:x.thumb}" alt="Photo ${j+2}" loading="lazy" decoding="async" onload="this.classList.add('ld')">${more&&j===rest.length-1?`<span class="gmore">+${more}</span>`:''}</button>`).join('');
+ const cls=n===1?'g1':n===2?'g2':n===3?'g3':'g4';
+ return `<div class="gal ${cls}" style="--gc:${Math.min(4,n-1)}">${cls==='g4'?lead+`<div class="gthumbs">${th}</div>`:lead+th}</div>`;}
 function heroHtml(cls,crumbs,title,loc,price,priceLbl,tags,photos,credit,icon){
  const ph=photos&&photos[0];
- return `<div class="dhero ${cls} ${ph?'photo':''}" ${ph?`style="background-image:linear-gradient(180deg,rgba(10,25,40,.45) 0%,rgba(10,25,40,.35) 35%,rgba(10,25,40,.92) 100%),url('${ph.src}')"`:''}><button class="close" aria-label="Close" onclick="location.hash='#/'">✕</button>${!ph&&icon?`<div class="phbig">${icon}<span>No project photo published</span></div>`:''}<div class="crumbs">${crumbs}</div><h2>${esc(title)}</h2><div class="loc">${esc(loc)}</div>${price?`<div class="bigprice"><small>${priceLbl}</small>${esc(price)}</div>`:''}<div class="htags">${tags.filter(Boolean).map(t=>`<span>${esc(t)}</span>`).join('')}</div>${ph?`<div class="hcredit">Photo: ${esc(credit)}</div>`:''}</div>${photos&&photos.length>1?`<div class="gallery">${photos.map((x,i)=>`<img src="${x.thumb}" data-src="${x.src}" class="${i?'':'on'}" alt="Photo ${i+1}">`).join('')}</div>`:''}`;}
+ return `<div class="dtop ${ph?'hasgal':''}"><button class="close" aria-label="Close" onclick="location.hash='#/'">✕</button>${galHtml(photos,credit)}<div class="dhero ${cls}">${!ph&&icon?`<div class="phbig">${icon}<span>No project photo published</span></div>`:''}<div class="crumbs">${crumbs}</div><h2>${esc(title)}</h2><div class="loc">${esc(loc)}</div>${price?`<div class="bigprice"><small>${priceLbl}</small>${esc(price)}</div>`:''}<div class="htags">${tags.filter(Boolean).map(t=>`<span>${esc(t)}</span>`).join('')}</div>${ph?`<div class="hcredit">Photos: ${esc(credit)}</div>`:''}</div></div>`;}
+function avCta(p){const a=p.avail||{level:'unknown'};const u=`#/project/${p.id}/units`;
+ if(a.level==='unknown')return `<div class="avcta"><a class="btn avbig muted" href="${u}"><span class="ai">▦</span><span><b>See availability</b><small>No live availability published yet</small></span><span class="ar">→</span></a></div>`;
+ const so=a.soldOut||a.available===0;const cnt=so?'Sold out':a.available!=null?`${a.available} available${a.total?' / '+a.total+' total':''}`:'Listed for sale';
+ return `<div class="avcta"><a class="btn avbig ${so?'sold':''}" href="${u}"><span class="ai">▦</span><span><b>See availability</b><small>${cnt}${a.ph?` · ★ ${a.ph} penthouse${a.ph>1?'s':''}`:''}</small></span><span class="ar">→</span></a></div>`;}
 function scoreSec(p){return `<div class="dsec"><h4>Fit score <span class="fit ${fitCls(p.fit)} big">${p.fit} / 10</span></h4>${p.fitParts.map(c=>`<div class="sbar"><div class="sl"><span>${esc(c.k)}</span><b>${c.v} / ${c.max}</b></div><div class="track"><i style="width:${100*c.v/c.max}%"></i></div><div class="sw2">${esc(c.why)}</div></div>`).join('')}<p class="note" style="margin-top:8px">Computed by this map from your brief; not third-party data. <a href="#" onclick="document.getElementById('info').classList.add('open');return false">How it works</a></p></div>`;}
 function viewProject(p){
  const cls=p.shortlist?'gold':p.ultra?'ultra':p.category==='Branded residences'?'plum':p.premium?'sea':'';
  let h=heroHtml(cls,tierLbl(p)+' · '+esc(p.category),p.name,p.area,p.priceText,p.shortlist||p.premium||p.ultra?'Price':'Entry price',['Fit '+p.fit+'/10','Delivery '+p.delivery,p.sea&&/^yes/i.test(p.sea)?'Sea view':'',p.gated&&!isNS(p.gated)?'Gated':'',p.penthouse?'Penthouses':'',p.precise?'':'Approx. location'],p.photos,p.photoCredit,catIcon(p));
- h+=bigWeb(p.url,'Visit project website',p.urlKind+' on '+p.urlHost);
+ h+=avCta(p);
  if(typeof avSec==='function')h+=avSec(p);
  h+=`<div class="dsec"><h4>Key facts</h4><div class="facts">${fact('Developer',p.developer)}${fact('Type',p.kind)}${fact('Units',p.units)}${fact('Delivery',p.delivery)}`;
  if(p.premium||p.ultra){h+=fact('Price range',p.priceText)+fact('Size / plot / pool',p.size,1)+fact('Sea view',p.sea,1)+fact('Gated / security',p.gated)+fact('Area group',p.zone)+fact('Listing summary',p.note,1);}
@@ -157,25 +168,23 @@ function viewProject(p){
  h+=`<div class="dsec near"><h4>Closest international schools (straight line)</h4>${p.nearSchools.map(s=>{const so=D.schools.find(x=>x.id===s.id);return `<a href="#/school/${s.id}">${esc(s.name)} <em>${esc(so.badge)}</em><span>${s.km} km →</span></a>`;}).join('')}</div>`;
  const amen=[];POIL.forEach(g=>{if(!g.near)return;let best=null;g.items.forEach(x=>{const d=hav(p.lat,p.lng,x.lat,x.lng);if(!best||d<best[0])best=[d,x];});if(best)amen.push([g,best]);});
  if(amen.length)h+=`<div class="dsec near"><h4>Nearest amenities (straight line)</h4>${amen.map(([g,[d,x]])=>`<a href="#" data-ll="${x.lat},${x.lng}">${g.icon} ${esc(x.name)} <em>${esc(g.short||g.name)}</em><span>${d.toFixed(1)} km</span></a>`).join('')}</div>`;
- h+=locSec(p)+shareSec()+`<div class="dsec note">Prices exclude 10% VAT and 1.2% stamp duty unless stated. Sea views and terrace sizes as claimed by developers/agents; confirm per unit. Photos © their publishers (${phSrc(p)}), shown for reference. Research as of ${esc(D.updated)}.</div>`;
+ h+=locSec(p)+shareSec()+webFoot(p.url,'Project website',p.urlKind+' on '+p.urlHost)+`<div class="dsec note">Prices exclude 10% VAT and 1.2% stamp duty unless stated. Sea views and terrace sizes as claimed by developers/agents; confirm per unit. Photos © their publishers (${phSrc(p)}), shown for reference. Research as of ${esc(D.updated)}.</div>`;
  return h;}
 function viewSchool(s){
  let h=heroHtml('green','International school · ranked #'+s.rank,s.name,s.area,s.badge,'Key result',['Ages '+s.ages,s.precise?'':'Approx. location'],s.photos,s.photoCredit,'🎓');
- h+=bigWeb(s.site||s.url,'Visit school website',s.site?'School website':'Source');
  h+=`<div class="dsec"><h4>Profile</h4><div class="facts">${fact('Curriculum',s.curriculum,1)}${fact('Ages',s.ages)}${fact('Annual fees',s.fees)}${fact('Inspection / accreditation',s.accred,1)}${fact('Results',s.results,1)}${fact('Best-placed areas',s.near,1)}</div><p class="note" style="margin-top:8px">Results source: <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></p></div>`;
  const np=D.properties.map(p=>[hav(s.lat,s.lng,p.lat,p.lng),p]).sort((a,b)=>a[0]-b[0]).slice(0,6);
  h+=`<div class="dsec near"><h4>Nearest projects (straight line)</h4>${np.map(([d,p])=>`<a href="#/project/${p.id}">${esc(p.name)}${p.shortlist?' ★':''} <em>fit ${p.fit}</em><span>${d.toFixed(1)} km →</span></a>`).join('')}</div>`;
- return h+locSec(s)+shareSec();}
+ return h+locSec(s)+shareSec()+webFoot(s.site||s.url,s.site?'School website':'Source',s.site?'':'');}
 function viewZone(z){
  let h=heroHtml('zone '+(z.tone==='heritage'?'heritage':''),z.rank?'Hotspot #'+z.rank+' · '+esc(z.label):esc(z.label),z.name,z.metric,z.avgFit!=null?'Avg fit '+z.avgFit+' / 10':'','Projects in this area',[z.growth?z.growth+' y/y asking prices':''],z.photos,z.photoCredit);
- if(z.url)h+=bigWeb(z.url,z.urlLabel||'Visit website',z.urlKind);
  h+=`<div class="dsec"><h4>${z.tone==='heritage'?'About':'Why it matters'}</h4><p class="p">${esc(z.detail)}</p></div>`;
  const ps=D.properties.filter(p=>p.zoneObj===z);
  if(z.tone!=='heritage')h+=`<div class="dsec near"><h4>Projects in this area (${ps.length})</h4>${ps.map(p=>`<a href="#/project/${p.id}">${esc(p.name)}${p.shortlist?' ★':''} <em>fit ${p.fit}</em><span>${p.price?fmt(p.price):'TBA'} →</span></a>`).join('')||'<p class="note">None mapped inside this outline.</p>'}</div>`;
- return h+`<div class="dsec note">Outline is hand-drawn for orientation only, not an official boundary.${z.rank?' Price data: Idealista asking prices, Sept 2026 (published Oct 2026). Avg fit = mean of the computed fit scores of projects in this area.':''}</div>`+shareSec();}
+ return h+`<div class="dsec note">Outline is hand-drawn for orientation only, not an official boundary.${z.rank?' Price data: Idealista asking prices, Sept 2026 (published Oct 2026). Avg fit = mean of the computed fit scores of projects in this area.':''}</div>`+shareSec()+(z.url?webFoot(z.url,z.urlLabel||'Website',z.urlKind):'');}
 function phSrc(p){const pg=[...new Set((p.photos||[]).map(x=>x.page).filter(Boolean))];return pg.length?pg.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a>`).join(', '):esc(p.photoCredit);}
-function viewPlace(s){let h=heroHtml(s.kind==='Old town'?'zone heritage':'teal',esc(s.kind),s.name,s.status,'','',[],s.photos,s.photoCredit);h+=bigWeb(s.url,s.urlLabel||'Visit website',s.urlKind);h+=`<div class="dsec"><p class="p">${esc(s.detail)}</p></div>`;return h+locSec(Object.assign({precise:true,geoNote:'Location from OpenStreetMap.'},s))+shareSec();}
-function viewTrain(){const t=D.train;return heroHtml('plum','Catalyst · '+esc(t.status),t.name,'Fuengirola – Marbella – Estepona','','',[])+bigWeb(t.url,'Read the source','News')+`<div class="dsec"><p class="p">${esc(t.detail)}</p></div>`+shareSec();}
+function viewPlace(s){let h=heroHtml(s.kind==='Old town'?'zone heritage':'teal',esc(s.kind),s.name,s.status,'','',[],s.photos,s.photoCredit);h+=`<div class="dsec"><p class="p">${esc(s.detail)}</p></div>`;return h+locSec(Object.assign({precise:true,geoNote:'Location from OpenStreetMap.'},s))+shareSec()+webFoot(s.url,s.urlLabel||'Website',s.urlKind);}
+function viewTrain(){const t=D.train;return heroHtml('plum','Catalyst · '+esc(t.status),t.name,'Fuengirola – Marbella – Estepona','','',[])+`<div class="dsec"><p class="p">${esc(t.detail)}</p></div>`+shareSec()+webFoot(t.url,'Source','News');}
 function route(){
  if(/^#\/swipe/.test(location.hash)){$('#detail').classList.remove('open');openSwipe();return;} else closeSwipe(true);
  const m=location.hash.match(/^#\/(project|school|zone|place|train)\/?([\w-]*)/);const det=$('#detail');
@@ -185,15 +194,16 @@ function route(){
  if(k==='project'){const p=D.properties.find(x=>x.id===id);if(p){h=viewProject(p);ll=[p.lat,p.lng];title=p.name;}}
  if(k==='school'){const s=D.schools.find(x=>x.id===id);if(s){h=viewSchool(s);ll=[s.lat,s.lng];title=s.name;}}
  if(k==='place'){const s=D.pois.find(x=>x.id===id);if(s){h=viewPlace(s);ll=[s.lat,s.lng];title=s.name;}}
- const pad={paddingTopLeft:[innerWidth>860?480:20,40],paddingBottomRight:[40,40],duration:.8};
+ const dw=innerWidth>860?(det.offsetWidth||720):0;const pad={paddingTopLeft:[innerWidth>860?dw+20:20,40],paddingBottomRight:[40,40],duration:.8};
  if(k==='zone'){const z=D.zones.find(x=>x.id===id);if(z){h=viewZone(z);title=z.name;map.flyToBounds(zoneLayers[id].getBounds(),Object.assign({maxZoom:16},pad));}}
  if(k==='train'){h=viewTrain();title='Coastal train study';map.flyToBounds(tr.getBounds(),pad);}
  if(!h){location.hash='#/';return;}
  $('#dbody').innerHTML=h;$('#dbody').scrollTop=0;det.classList.add('open');det.setAttribute('aria-hidden','false');document.title=title+' · Marbella New-Build Atlas';
  const cp=$('#copy');if(cp)cp.onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(location.href);cp.textContent='✓ Link copied';};
- $$('#dbody .gallery img').forEach(img=>img.onclick=()=>{const hero=$('#dbody .dhero');hero.style.backgroundImage=`linear-gradient(180deg,rgba(10,25,40,.45) 0%,rgba(10,25,40,.35) 35%,rgba(10,25,40,.92) 100%),url('${img.dataset.src}')`;$$('#dbody .gallery img').forEach(x=>x.classList.toggle('on',x===img));});
+ const galP=k==='project'?(D.properties.find(x=>x.id===id)||{}):k==='school'?(D.schools.find(x=>x.id===id)||{}):k==='place'?(D.pois.find(x=>x.id===id)||{}):k==='zone'?(D.zones.find(x=>x.id===id)||{}):{};
+ $$('#dbody .gal .gi').forEach(b=>b.onclick=()=>lbOpen(galP.photos||[],+b.dataset.i,title,galP.photoCredit));
  $$('#dbody a[data-ll]').forEach(a=>a.onclick=e=>{e.preventDefault();const [la,ln]=a.dataset.ll.split(',').map(Number);map.flyTo([la,ln],15);});
- if(ll){const z=Math.max(map.getZoom(),14);const off=innerWidth>860?230:0;const pt=map.project(ll,z).subtract([off,0]);map.flyTo(map.unproject(pt,z),z,{duration:.8});
+ if(ll){const z=Math.max(map.getZoom(),14);const off=innerWidth>860?Math.round(dw/2):0;const pt=map.project(ll,z).subtract([off,0]);map.flyTo(map.unproject(pt,z),z,{duration:.8});
   const mk=markers[k+'/'+id];if(mk&&k==='project'&&!layers.props.hasLayer(mk))mk.addTo(layers.props);}
 }
 
@@ -207,8 +217,9 @@ function swCard(p,k){const ph=p.photos&&p.photos[0];const sea=p.sea&&/^yes/i.tes
  return `<article class="swc ${propClass(p)}" data-k="${k}"><div class="swimg" ${ph?`data-src="${esc(ph.src)}"`:''} style="${ph?'':'background:'+catBg(p)}">${ph?'':`<span class="swph">${catIcon(p)}<small>No project photo published</small></span>`}<span class="fit ${fitCls(p.fit)} big">Fit ${p.fit}</span><span class="swtier">${esc(tierLbl(p))}</span>${p.penthouse?'<span class="swph2">★ Penthouse</span>':''}${p.precise?'':'<span class="swapprox">◌ approx. pin</span>'}</div>
  <div class="swb"><h3>${esc(p.name)}</h3><div class="swa">${esc(p.area)}</div><div class="swp">${esc(p.priceText||'Price not published')}</div>${typeof avBadge==='function'?avBadge(p,'sw'):''}
  <dl><div><dt>Type</dt><dd>${esc(p.category==='Branded residences'?['Branded',...utOf(p).filter(t=>t!=='Branded residences')].join(' · '):utOf(p).join(' · '))}</dd></div><div><dt>Delivery</dt><dd>${esc(clip(p.delivery,60))}</dd></div><div class="full"><dt>Sea view</dt><dd class="${/^yes/i.test(p.sea||'')?'yes':'ns'}">${esc(sea)}</dd></div>${p.penthouse?`<div class="full ph"><dt>Penthouse</dt><dd>${esc(clip([p.penthouse.priceText,p.penthouse.size,p.penthouse.terrace].filter(Boolean).join(' · '),130))}</dd></div>`:''}<div class="full"><dt>Size</dt><dd>${esc(clip(p.size||'Not stated',110))}${ter?' · Terrace '+esc(clip(ter,50)):''}</dd></div></dl>
- <div class="swbtn">${webBtn(p.url,'Visit project website','primary')}<a class="btn" href="#/project/${p.id}">Show on map</a></div></div></article>`;}
-function swBuild(){SW.list=swList();$('#swtrack').innerHTML=SW.list.map(swCard).join('')||'<div class="swempty">No projects match the current filters.</div>';swLayout(false);}
+ <div class="swbtn"><a class="btn primary vd" href="#/project/${p.id}">View details →</a></div></div></article>`;}
+function swBuild(){SW.list=swList();$('#swtrack').innerHTML=SW.list.map(swCard).join('')||'<div class="swempty">No projects match the current filters.</div>';
+ $$('#swtrack .swc').forEach(c=>c.onclick=e=>{if(e.target.closest('a')||Date.now()-(SW.drag||0)<400)return;const p=SW.list[+c.dataset.k];if(p)location.hash='#/project/'+p.id;});swLayout(false);}
 function swLayout(anim){SW.n=swN();const t=$('#swtrack');t.style.setProperty('--n',SW.n);const tot=SW.list.length;
  SW.i=Math.max(0,Math.min(SW.i-SW.i%SW.n,Math.max(0,tot-1)-((Math.max(0,tot-1))%SW.n)));
  t.classList.toggle('anim',anim!==false);t.style.transform=`translate3d(${-SW.i*100/SW.n}%,0,0)`;
@@ -229,7 +240,7 @@ window.addEventListener('resize',()=>{if(SW.open)swLayout(false);});
 (()=>{const vp=$('#swview');let x0=null,y0=0,dx=0,lock=null,w=1;
  vp.addEventListener('touchstart',e=>{const t=e.touches[0];x0=t.clientX;y0=t.clientY;dx=0;lock=null;w=vp.clientWidth;$('#swtrack').classList.remove('anim');},{passive:true});
  vp.addEventListener('touchmove',e=>{if(x0==null)return;const t=e.touches[0];const ddx=t.clientX-x0,ddy=t.clientY-y0;if(lock==null&&(Math.abs(ddx)>8||Math.abs(ddy)>8))lock=Math.abs(ddx)>Math.abs(ddy)?'x':'y';if(lock!=='x')return;dx=ddx;$('#swtrack').style.transform=`translate3d(calc(${-SW.i*100/SW.n}% + ${dx}px),0,0)`;},{passive:true});
- vp.addEventListener('touchend',()=>{if(x0==null)return;x0=null;if(lock==='x'&&Math.abs(dx)>Math.min(60,w*.15))swStep(dx<0?1:-1);else swLayout(true);});
+ vp.addEventListener('touchend',()=>{if(x0==null)return;x0=null;if(lock==='x')SW.drag=Date.now();if(lock==='x'&&Math.abs(dx)>Math.min(60,w*.15))swStep(dx<0?1:-1);else swLayout(true);});
 })();
 function go(k,id){location.hash='#/'+k+'/'+id;}
 window.addEventListener('hashchange',route);
@@ -241,3 +252,28 @@ if(!location.hash||location.hash==='#/'){map.fitBounds(L.featureGroup(D.properti
 if(innerWidth<=860)$('#sidebar').classList.add('collapsed');
 window.__atlasReady=true;
 })();
+
+// ---------- Lightbox (detail gallery): arrows, keys, swipe, counter, credit, lazy neighbours
+const lbQ=s=>document.querySelector(s),lbAll=s=>[...document.querySelectorAll(s)],lbEsc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LB={list:[],i:0,open:false,title:''};
+(function(){const d=document.createElement('div');d.id='lb';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-hidden','true');
+ d.innerHTML='<div class="lbstage"><img id="lbimg" alt=""></div><button class="lbx" aria-label="Close">✕</button><button class="lbnav lbp" aria-label="Previous photo">‹</button><button class="lbnav lbn" aria-label="Next photo">›</button><div class="lbbar"><span id="lbcount"></span><span id="lbtitle"></span><span id="lbcred"></span></div>';
+ document.body.appendChild(d);
+ d.querySelector('.lbx').onclick=lbClose;d.querySelector('.lbp').onclick=e=>{e.stopPropagation();lbGo(-1);};d.querySelector('.lbn').onclick=e=>{e.stopPropagation();lbGo(1);};
+ d.addEventListener('click',e=>{if(e.target===d||e.target.classList.contains('lbstage'))lbClose();});
+ const im=d.querySelector('#lbimg');im.onload=()=>im.classList.add('ld');
+ let x0=null,y0=0;d.addEventListener('touchstart',e=>{const t=e.touches[0];x0=t.clientX;y0=t.clientY;},{passive:true});
+ d.addEventListener('touchend',e=>{if(x0==null)return;const t=e.changedTouches[0],dx=t.clientX-x0,dy=t.clientY-y0;x0=null;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))lbGo(dx<0?1:-1);else if(dy>90&&Math.abs(dy)>Math.abs(dx))lbClose();},{passive:true});
+ window.addEventListener('keydown',e=>{if(!LB.open)return;if(e.key==='ArrowRight'){lbGo(1);}else if(e.key==='ArrowLeft'){lbGo(-1);}else if(e.key==='Escape'){lbClose();}else return;e.preventDefault();e.stopImmediatePropagation();},true);
+})();
+function lbShow(){const x=LB.list[LB.i];if(!x)return;const im=lbQ('#lbimg');im.classList.remove('ld');im.alt=`${LB.title} · photo ${LB.i+1}`;
+ requestAnimationFrame(()=>{im.src=x.src;if(im.complete&&im.naturalWidth)im.classList.add('ld');});
+ const n=LB.list.length;lbQ('#lbcount').textContent=`${LB.i+1} / ${n}`;lbQ('#lbtitle').textContent=LB.title||'';
+ const pg=x.page||x.orig;const host=pg?pg.replace(/^https?:\/\/(www\.)?/,'').split('/')[0]:'';
+ lbQ('#lbcred').innerHTML=pg?`Photo: <a href="${lbEsc(pg)}" target="_blank" rel="noopener">${lbEsc(host)} ↗</a>`:(LB.credit?'Photo: '+lbEsc(LB.credit):'');
+ lbAll('#lb .lbnav').forEach(b=>b.style.display=n>1?'':'none');
+ [1,-1].forEach(d=>{const y=LB.list[(LB.i+d+n)%n];if(y){const p=new Image();p.src=y.src;}});}
+function lbOpen(list,i,title,credit){if(!list.length)return;Object.assign(LB,{list,i:i||0,title:title||'',credit:credit||'',open:true});const d=lbQ('#lb');d.classList.add('open');d.setAttribute('aria-hidden','false');document.body.classList.add('lbopen');lbShow();setTimeout(()=>d.querySelector('.lbn').focus({preventScroll:true}),30);}
+function lbClose(){if(!LB.open)return;LB.open=false;const d=lbQ('#lb');d.classList.remove('open');d.setAttribute('aria-hidden','true');document.body.classList.remove('lbopen');}
+function lbGo(d){const n=LB.list.length;if(n<2)return;LB.i=(LB.i+d+n)%n;lbShow();}
+addEventListener('hashchange',lbClose);

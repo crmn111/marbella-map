@@ -67,3 +67,7 @@ Per project in `availability.json`:
 Compact `avail` in `data.js` (badges, filters): `level, available, total, summary, lastChecked, asOf, priceMin, priceMax, ph, phMin, phMax, soldOut, source, sourceUrl`.
 
 UI: the project detail has an **Availability** section with a button that opens the third panel at `#/project/<id>/units` (beside the detail on desktop, full screen on mobile). The panel has a sortable table, type chips, an "Available units only" toggle and highlighted penthouses, or a summary for project-level data. Map popups, list cards and Swipe cards show an “N units available” badge. The price filter has an "Available units only (live prices)" option, which matches the range against available unit prices and hides sold-out projects. Code: `avail.js`, loaded before `app.js`.
+
+**Topping up projects with few photos:** add vetted `[imageUrl, pageUrl]` pairs to `_build/photo_topup.json` (`{"<id>": [...]}`) and run `python3 topup.py`. It appends up to 8 photos in total, numbered after the existing ones, and skips near-duplicates. Then run `python3 enrich.py`. Roccabox development pages list a project's own gallery in `const galleryImgs = [...]`. Other `zd-proxy` images on those pages belong to "similar developments", so don't use them. Never use marbella.live `/share/` images: they are text share cards, not photos.
+
+The detail page shows photos as a gallery: a lead image plus up to 4 thumbnails, with a "+N" tile when there are more. A lightbox shows each photo full size with a link to the page it came from (`page`), so keep `page` filled in.
