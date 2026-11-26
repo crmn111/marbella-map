@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23",
+ "updated": "2026-11-26",
  "note": "Live unit availability per project; built by _build/refresh_availability.py. Prices exclude VAT unless the source says otherwise.",
  "projects": {
   "four-seasons-private-residences": {
@@ -172,7 +172,7 @@
   },
   "aida-marbella-by-bentley-home": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "0D",
@@ -210,7 +210,7 @@
       "https://wesellhomes.es/en/new-build/aida-furnished-by-bentley-home-marbella/"
      ],
      "asOf": "2026-11-23",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 2,
      "total": null,
      "note": "Price list of 23 November 2026",
@@ -224,7 +224,7 @@
       "https://santinahomes.com/new-developments/aida/"
      ],
      "asOf": "2026-11-05",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -238,7 +238,7 @@
       "https://www.roccabox.com/new-developments/marbella/aida-furnished-by-bentley-home"
      ],
      "asOf": "2026-10-03",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": null,
      "total": null,
      "note": "Listed for sale (schema.org availability: PreOrder, 8 offers); no unit list published",
@@ -265,7 +265,7 @@
   },
   "villa-oria": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -287,7 +287,7 @@
       "https://www.roccabox.com/new-developments/marbella/villa-oria"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -313,7 +313,7 @@
   },
   "the-avenue-marbella": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa 11",
@@ -506,7 +506,7 @@
       "https://wesellhomes.es/en/new-build/avenue-marbella/"
      ],
      "asOf": "2026-11-20",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 13,
      "total": null,
      "note": "Price list of 20 November 2026",
@@ -520,7 +520,7 @@
       "https://santinahomes.com/new-developments/avenue-marbella/"
      ],
      "asOf": "2026-11-08",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 13,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -534,7 +534,7 @@
       "https://www.roccabox.com/new-developments/marbella/the-avenue-marbella"
      ],
      "asOf": "2026-11-21",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 13,
      "total": 26,
      "note": "",
@@ -560,7 +560,7 @@
   },
   "ocho-de-oro-versace-home": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "type": "Villa",
@@ -637,7 +637,7 @@
       "https://santinahomes.com/new-developments/ocho-de-oro/"
      ],
      "asOf": "2026-11-05",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 6,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -651,7 +651,7 @@
       "https://www.roccabox.com/new-developments/marbella/ocho-de-oro-by-versace"
      ],
      "asOf": "2026-11-08",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 6,
      "total": 8,
      "note": "",
@@ -677,7 +677,7 @@
   },
   "tierra-viva-lamborghini": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "type": "Villa",
@@ -754,7 +754,7 @@
       "https://santinahomes.com/new-developments/tierra-viva/"
      ],
      "asOf": "2026-11-05",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 6,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -768,7 +768,7 @@
       "https://www.roccabox.com/new-developments/benahavis/tierra-viva"
      ],
      "asOf": "2026-06-03",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": null,
      "total": null,
      "note": "Listed for sale (schema.org availability: PreOrder, 53 offers); no unit list published",
@@ -794,7 +794,7 @@
   },
   "benahavis-villa-residences": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "5.1 GF",
@@ -831,11 +831,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/finca-de-jasmine-sky-villas-benahavis/"
      ],
-     "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 2,
      "total": null,
-     "note": "Price list of 18 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 1
     },
@@ -845,8 +845,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/benahavis/finca-de-jasmine-sky-villas"
      ],
-     "asOf": "2026-11-20",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": 2,
      "total": 5,
      "note": "",
@@ -873,7 +873,7 @@
   },
   "real-de-la-quinta-new-phase": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "type": "Penthouse",
@@ -917,7 +917,7 @@
       "https://www.engelvoelkers.com/es/es/projects/64336203-cc7a-5f02-8487-23c2a27bda54"
      ],
      "asOf": "",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 3,
      "total": 28,
      "note": "",
@@ -944,7 +944,7 @@
   },
   "solenne": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "type": "Apartment",
@@ -1010,7 +1010,7 @@
       "https://alianzgroup.es/promociones/proyectos/solenne"
      ],
      "asOf": "",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 5,
      "total": null,
      "note": "Developer site",
@@ -1024,7 +1024,7 @@
       "https://wesellhomes.es/en/new-build/solenne-benahavis/"
      ],
      "asOf": "2026-11-20",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 9,
      "total": null,
      "note": "Price list of 20 November 2026",
@@ -1038,7 +1038,7 @@
       "https://santinahomes.com/new-developments/solenne/"
      ],
      "asOf": "2026-11-12",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 9,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -1052,7 +1052,7 @@
       "https://www.roccabox.com/new-developments/benahavis/solenne"
      ],
      "asOf": "2026-11-21",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 9,
      "total": 20,
      "note": "",
@@ -1081,7 +1081,7 @@
   },
   "sotomar-by-the-sea": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa 4",
@@ -1133,11 +1133,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/sotomar-by-the-sea-marbella/"
      ],
-     "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 3,
      "total": null,
-     "note": "Price list of 18 November 2026",
+     "note": "Price list of 23 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -1148,7 +1148,7 @@
       "https://santinahomes.com/new-developments/sotomar-by-the-sea/"
      ],
      "asOf": "2026-11-08",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 3,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -1162,7 +1162,7 @@
       "https://www.roccabox.com/new-developments/marbella/sotomar-by-the-sea"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 3,
      "total": 4,
      "note": "",
@@ -1188,7 +1188,7 @@
   },
   "royal-river": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "V1",
@@ -1361,11 +1361,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/royal-river-marbella/"
      ],
-     "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 12,
      "total": null,
-     "note": "Price list of 18 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 3
     },
@@ -1376,7 +1376,7 @@
       "https://santinahomes.com/new-developments/royal-river/"
      ],
      "asOf": "2026-11-08",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 12,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -1390,7 +1390,7 @@
       "https://www.roccabox.com/new-developments/marbella/royal-river"
      ],
      "asOf": "2026-11-19",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 12,
      "total": 17,
      "note": "",
@@ -1417,7 +1417,7 @@
   },
   "serenity-hills": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "No.71",
@@ -2603,11 +2603,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/serenity-hills-marbella/"
      ],
-     "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 84,
      "total": null,
-     "note": "Price list of 18 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -2618,7 +2618,7 @@
       "https://www.roccabox.com/new-developments/marbella/serenity-hills"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 84,
      "total": 113,
      "note": "",
@@ -2701,7 +2701,7 @@
   },
   "nacare": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Vivienda 9",
@@ -2790,7 +2790,7 @@
       "https://wesellhomes.es/en/new-build/nacare-estepona/"
      ],
      "asOf": "2026-11-20",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 6,
      "total": null,
      "note": "Price list of 20 November 2026",
@@ -2804,7 +2804,7 @@
       "https://santinahomes.com/new-developments/nacare/"
      ],
      "asOf": "2026-11-08",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 6,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -2818,7 +2818,7 @@
       "https://www.roccabox.com/new-developments/estepona/nacare"
      ],
      "asOf": "2026-11-21",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 6,
      "total": 20,
      "note": "",
@@ -3043,7 +3043,7 @@
   },
   "kalifornia": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "04-03-01-B",
@@ -3094,19 +3094,6 @@
      "terrace": 18,
      "floor": "Block 1 · Ground floor",
      "price": 508000,
-     "status": "available",
-     "src": "https://wesellhomes.es/en/new-build/kalifornia-estepona/"
-    },
-    {
-     "id": "02-01-00-B",
-     "type": "Ground floor",
-     "label": "Apartments",
-     "beds": 2,
-     "built": 79,
-     "usable": 67,
-     "terrace": 34,
-     "floor": "Block 2 · Ground floor",
-     "price": 510000,
      "status": "available",
      "src": "https://wesellhomes.es/en/new-build/kalifornia-estepona/"
     },
@@ -3275,11 +3262,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/kalifornia-estepona/"
      ],
-     "asOf": "2026-11-20",
-     "checked": "2026-11-23",
-     "available": 17,
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
+     "available": 16,
      "total": null,
-     "note": "Price list of 20 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 1
     },
@@ -3290,7 +3277,7 @@
       "https://santinahomes.com/new-developments/kalifornia/"
      ],
      "asOf": "2026-11-12",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 9,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -3304,7 +3291,7 @@
       "https://www.roccabox.com/new-developments/estepona/kalifornia"
      ],
      "asOf": "2026-11-19",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 17,
      "total": 19,
      "note": "",
@@ -3315,7 +3302,7 @@
    "notes": [
     "Santina and Roccabox don't label any unit a penthouse; WeSellHomes' price list labels 04-01-02-A (2nd floor) as one."
    ],
-   "available": 17,
+   "available": 16,
    "total": 19,
    "reserved": null,
    "sold": null,
@@ -3329,26 +3316,12 @@
     "basis": "unit list",
     "maxTerrace": 47
    },
-   "summary": "17 available of 19"
+   "summary": "16 available of 19"
   },
   "amaris-villas": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
-    {
-     "id": "No.4",
-     "type": "Villa",
-     "label": "Villas",
-     "beds": 3,
-     "built": 265,
-     "usable": 225,
-     "terrace": 130,
-     "garden": 405,
-     "floor": "Ground floor + 405 m² garden",
-     "price": 1590000,
-     "status": "available",
-     "src": "https://wesellhomes.es/en/new-build/amaris-estepona/"
-    },
     {
      "id": "No.3",
      "type": "Villa",
@@ -3525,11 +3498,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/amaris-estepona/"
      ],
-     "asOf": "2026-11-13",
-     "checked": "2026-11-23",
-     "available": 13,
+     "asOf": "2026-11-23",
+     "checked": "2026-11-26",
+     "available": 12,
      "total": null,
-     "note": "Price list of 13 November 2026",
+     "note": "Price list of 23 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -3539,8 +3512,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/estepona/amaris-villas"
      ],
-     "asOf": "2026-11-20",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": 12,
      "total": 17,
      "note": "",
@@ -3549,7 +3522,7 @@
     }
    ],
    "notes": [],
-   "available": 13,
+   "available": 12,
    "total": 17,
    "reserved": null,
    "sold": null,
@@ -3562,11 +3535,11 @@
     "evidence": [],
     "basis": ""
    },
-   "summary": "13 available of 17"
+   "summary": "12 available of 17"
   },
   "swing-sea-villas": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "4-9A",
@@ -3731,7 +3704,7 @@
       "https://wesellhomes.es/en/new-build/swing-and-sea-villas-estepona/"
      ],
      "asOf": "2026-11-23",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 11,
      "total": null,
      "note": "Price list of 23 November 2026",
@@ -3745,7 +3718,7 @@
       "https://www.roccabox.com/new-developments/estepona/swing-sea-luxury-villas"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 11,
      "total": 15,
      "note": "",
@@ -3771,7 +3744,7 @@
   },
   "estepona-beach-access-apartments": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "1-1-0-A",
@@ -3947,7 +3920,7 @@
       "https://nuevaliving.com/property-la-resina-hillside-residences.html"
      ],
      "asOf": "September 2026",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 13,
      "total": 50,
      "note": "Checked September 2026",
@@ -3974,7 +3947,7 @@
   },
   "st-regis-residences": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "type": "Ground floor",
@@ -4062,7 +4035,7 @@
       "https://santinahomes.com/new-developments/the-st-regis-residences/"
      ],
      "asOf": "2026-11-13",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 7,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -4120,7 +4093,7 @@
   },
   "nubay": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "12A",
@@ -4264,7 +4237,7 @@
       "https://wesellhomes.es/en/new-build/nubay-villas-manilva/"
      ],
      "asOf": "2026-11-20",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 10,
      "total": null,
      "note": "Price list of 20 November 2026",
@@ -4277,13 +4250,13 @@
      "urls": [
       "https://santinahomes.com/new-developments/nubay/"
      ],
-     "asOf": "2026-10-16",
-     "checked": "2026-11-23",
-     "available": 9,
+     "asOf": "2026-11-26",
+     "checked": "2026-11-26",
+     "available": 7,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
      "primary": false,
-     "penthousesAvailable": 5
+     "penthousesAvailable": 4
     },
     {
      "label": "Roccabox",
@@ -4293,7 +4266,7 @@
       "https://www.roccabox.com/new-developments/manilva/nubay-villas"
      ],
      "asOf": "2026-11-21",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 10,
      "total": 70,
      "note": "",
@@ -4320,7 +4293,7 @@
   },
   "the-villas-of-sotogrande": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "HOUSE 5 / A'",
@@ -4667,7 +4640,7 @@
       "https://wesellhomes.es/en/new-build/las-villas-sotogrande/"
      ],
      "asOf": "2026-11-19",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 24,
      "total": null,
      "note": "Price list of 19 November 2026",
@@ -4681,7 +4654,7 @@
       "https://santinahomes.com/new-developments/las-villas-sotogrande/"
      ],
      "asOf": "2026-11-10",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 24,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -4695,7 +4668,7 @@
       "https://www.roccabox.com/new-developments/san-roque/las-villas-sotogrande"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 24,
      "total": 50,
      "note": "",
@@ -4721,7 +4694,7 @@
   },
   "lantana": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa 7",
@@ -4773,11 +4746,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/lantana-mijas/"
      ],
-     "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 3,
      "total": null,
-     "note": "Price list of 18 November 2026",
+     "note": "Price list of 23 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -4788,7 +4761,7 @@
       "https://santinahomes.com/new-developments/lantana/"
      ],
      "asOf": "2026-11-03",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 5,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -4802,7 +4775,7 @@
       "https://www.roccabox.com/new-developments/mijas-costa/lantana-villas"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 3,
      "total": 7,
      "note": "",
@@ -4828,7 +4801,7 @@
   },
   "arosa": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "AO-50C",
@@ -4937,6 +4910,19 @@
      "src": "https://wesellhomes.es/en/new-build/arosa-mijas/"
     },
     {
+     "id": "AO-33A",
+     "type": "Penthouse",
+     "label": "Penthouses",
+     "beds": 2,
+     "built": 128,
+     "usable": 83,
+     "terrace": 115,
+     "floor": "Entrance 3 · Floor 3",
+     "price": 1150000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/arosa-mijas/"
+    },
+    {
      "id": "AO-43B",
      "type": "Penthouse",
      "label": "Penthouses",
@@ -5009,13 +4995,13 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/arosa-mijas/"
      ],
-     "asOf": "2026-11-20",
-     "checked": "2026-11-23",
-     "available": 13,
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
+     "available": 14,
      "total": null,
-     "note": "Price list of 20 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
-     "penthousesAvailable": 6
+     "penthousesAvailable": 7
     },
     {
      "label": "Santina Homes",
@@ -5023,9 +5009,9 @@
      "urls": [
       "https://santinahomes.com/new-developments/arosa/"
      ],
-     "asOf": "2026-11-12",
-     "checked": "2026-11-23",
-     "available": 9,
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
+     "available": 8,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
      "primary": false,
@@ -5038,7 +5024,7 @@
       "https://www.roccabox.com/new-developments/mijas-costa/arosa"
      ],
      "asOf": "2026-11-21",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 13,
      "total": 46,
      "note": "",
@@ -5047,25 +5033,25 @@
     }
    ],
    "notes": [],
-   "available": 13,
+   "available": 14,
    "total": 46,
    "reserved": null,
    "sold": null,
    "priceMin": 705000,
    "priceMax": 1570000,
    "penthouse": {
-    "available": 6,
+    "available": 7,
     "priceMin": 1095000,
     "priceMax": 1570000,
     "evidence": [],
     "basis": "unit list",
     "maxTerrace": 151
    },
-   "summary": "13 available of 46"
+   "summary": "14 available of 46"
   },
   "emerald-view": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "2A12",
@@ -5300,11 +5286,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/emerald-view-mijas/"
      ],
-     "asOf": "2026-11-06",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 17,
      "total": null,
-     "note": "Price list of 6 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 4
     },
@@ -5314,8 +5300,8 @@
      "urls": [
       "https://santinahomes.com/new-developments/emerald-view-club-residences/"
      ],
-     "asOf": "2026-11-08",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 18,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -5329,7 +5315,7 @@
       "https://www.roccabox.com/new-developments/mijas-pueblo/emerald-view"
      ],
      "asOf": "2026-09-25",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 19,
      "total": 62,
      "note": "",
@@ -5356,7 +5342,7 @@
   },
   "villas-sirocco": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa B",
@@ -5409,7 +5395,7 @@
       "https://wesellhomes.es/en/new-build/sirocco-villas-marbella/"
      ],
      "asOf": "2026-11-06",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 3,
      "total": null,
      "note": "Price list of 6 November 2026",
@@ -5423,7 +5409,7 @@
       "https://santinahomes.com/new-developments/villas-sirocco/"
      ],
      "asOf": "2026-11-13",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 3,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -5436,8 +5422,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/marbella/villas-sirocco"
      ],
-     "asOf": "2026-11-20",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": 3,
      "total": 4,
      "note": "",
@@ -5463,7 +5449,7 @@
   },
   "cerquilla-39-b": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Cerquilla 39 B",
@@ -5485,8 +5471,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/marbella/cerquilla-39-b"
      ],
-     "asOf": "2026-11-20",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -5512,7 +5498,7 @@
   },
   "solara-iii": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -5534,8 +5520,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/marbella/solara-iii"
      ],
-     "asOf": "2026-11-14",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -5561,7 +5547,7 @@
   },
   "cabopino-gardens-villa-11": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa 11",
@@ -5583,8 +5569,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/marbella/cabopino-gardens-villa-11"
      ],
-     "asOf": "2026-11-14",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -5610,7 +5596,7 @@
   },
   "villa-azahar-de-nagueles": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -5633,7 +5619,7 @@
       "https://www.roccabox.com/new-developments/marbella/villa-azahar-de-nagueles"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -5659,7 +5645,7 @@
   },
   "solara-i": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -5681,8 +5667,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/marbella/solara-i"
      ],
-     "asOf": "2026-11-14",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -5708,7 +5694,7 @@
   },
   "dunique-marbella": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "DU-202",
@@ -5748,7 +5734,7 @@
       "https://wesellhomes.es/en/new-build/dunique-marbella-villas/"
      ],
      "asOf": "2026-11-20",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 2,
      "total": null,
      "note": "Price list of 20 November 2026",
@@ -5762,7 +5748,7 @@
       "https://santinahomes.com/new-developments/dunique-marbella/"
      ],
      "asOf": "2026-11-08",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 2,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -5776,7 +5762,7 @@
       "https://www.roccabox.com/new-developments/marbella/dunique-marbella"
      ],
      "asOf": "2026-11-21",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 63,
      "note": "",
@@ -5802,7 +5788,7 @@
   },
   "villa-liria": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -5824,7 +5810,7 @@
       "https://www.roccabox.com/new-developments/marbella/villa-liria"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -5850,7 +5836,7 @@
   },
   "cabopino-gardens-villa-8": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa 8",
@@ -5872,8 +5858,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/marbella/cabopino-gardens-villa-8"
      ],
-     "asOf": "2026-11-14",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -5899,7 +5885,7 @@
   },
   "villa-cascada": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -5922,7 +5908,7 @@
       "https://www.roccabox.com/new-developments/marbella/villa-cascada"
      ],
      "asOf": "2026-11-08",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -5948,7 +5934,7 @@
   },
   "contemporary-design-led-villa-in-marbella-s-golden-mile": {
    "level": "project",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [],
    "sources": [
     {
@@ -5958,7 +5944,7 @@
       "https://www.roccabox.com/new-developments/marbella/contemporary-design-led-villa-in-marbella-s-golden-mile"
      ],
      "asOf": "2026-07-22",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": null,
      "total": null,
      "note": "Listed for sale (schema.org availability: PreOrder, 1 offers); no unit list published",
@@ -5986,7 +5972,7 @@
   },
   "villa-evania": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -6009,7 +5995,7 @@
       "https://www.roccabox.com/new-developments/benahavis/villa-evania"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6035,7 +6021,7 @@
   },
   "villa-lyra": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -6057,7 +6043,7 @@
       "https://www.roccabox.com/new-developments/benahavis/villa-lyra"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6083,7 +6069,7 @@
   },
   "villa-40-monte-mayor": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa 40",
@@ -6106,7 +6092,7 @@
       "https://www.roccabox.com/new-developments/benahavis/villa-40-monte-mayor"
      ],
      "asOf": "2026-08-12",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6132,7 +6118,7 @@
   },
   "villa-azahar-real": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa Azahar Real",
@@ -6154,7 +6140,7 @@
       "https://www.roccabox.com/new-developments/benahavis/villa-azahar-real"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6180,7 +6166,7 @@
   },
   "monte-mayor-villas": {
    "level": "project",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [],
    "sources": [
     {
@@ -6190,7 +6176,7 @@
       "https://www.roccabox.com/new-developments/benahavis/monte-mayor-villas"
      ],
      "asOf": "2026-09-07",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": null,
      "total": null,
      "note": "Listed for sale (schema.org availability: PreOrder, 4 offers); no unit list published",
@@ -6218,7 +6204,7 @@
   },
   "villa-salvia": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa Salvia",
@@ -6241,7 +6227,7 @@
       "https://www.roccabox.com/new-developments/benahavis/villa-salvia"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6267,7 +6253,7 @@
   },
   "villa-marvel": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -6290,7 +6276,7 @@
       "https://www.roccabox.com/new-developments/benahavis/villa-marvel"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6316,7 +6302,7 @@
   },
   "villa-evania-real": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "type": "Villa",
@@ -6337,7 +6323,7 @@
       "https://www.roccabox.com/new-developments/benahavis/villa-evania-real"
      ],
      "asOf": "2026-11-10",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6363,7 +6349,7 @@
   },
   "villa-lyra-real": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa Lyra Real",
@@ -6385,7 +6371,7 @@
       "https://www.roccabox.com/new-developments/benahavis/villa-lyra-real"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6411,7 +6397,7 @@
   },
   "villa-selene-luxe": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -6433,7 +6419,7 @@
       "https://www.roccabox.com/new-developments/benahavis/villa-selene-luxe"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6459,7 +6445,7 @@
   },
   "villa-akasia": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -6481,7 +6467,7 @@
       "https://www.roccabox.com/new-developments/benahavis/villa-akasia"
      ],
      "asOf": "2026-11-13",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6507,7 +6493,7 @@
   },
   "vitae-villas-villa-c9": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa C9",
@@ -6530,7 +6516,7 @@
       "https://www.roccabox.com/new-developments/benahavis/vitae-villas-villa-c9"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6556,7 +6542,7 @@
   },
   "vitae-villas-villa-c8": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa C8",
@@ -6579,7 +6565,7 @@
       "https://www.roccabox.com/new-developments/benahavis/vitae-villas-villa-c8"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6605,7 +6591,7 @@
   },
   "villa-forest-edge": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -6629,11 +6615,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/el-bosque-ii-villa-forest-edge-benahavis/"
      ],
-     "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 1,
      "total": null,
-     "note": "Price list of 18 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -6644,7 +6630,7 @@
       "https://www.roccabox.com/new-developments/benahavis/el-bosque-phase-ii-villa-forest-edge"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -6670,7 +6656,7 @@
   },
   "ocyan-luxury-villas": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "type": "Villa",
@@ -6746,7 +6732,7 @@
       "https://santinahomes.com/new-developments/ocyan-villas/"
      ],
      "asOf": "2026-11-08",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 6,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -6760,7 +6746,7 @@
       "https://www.roccabox.com/new-developments/estepona/ocyan-luxury-villas"
      ],
      "asOf": "2026-09-29",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 6,
      "total": 12,
      "note": "",
@@ -6786,7 +6772,7 @@
   },
   "tyrian-residences": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "T1-109-Tyros",
@@ -6978,11 +6964,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/tyrian-residences-estepona/"
      ],
-     "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 14,
      "total": null,
-     "note": "Price list of 18 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 4
     },
@@ -6993,7 +6979,7 @@
       "https://santinahomes.com/new-developments/tyrian/"
      ],
      "asOf": "2026-11-09",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 16,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -7007,7 +6993,7 @@
       "https://www.roccabox.com/new-developments/estepona/tyrian-residences"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 14,
      "total": 40,
      "note": "",
@@ -7036,7 +7022,7 @@
   },
   "biubay": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "type": "Apartment",
@@ -7102,7 +7088,7 @@
       "https://santinahomes.com/new-developments/biubay/"
      ],
      "asOf": "2026-11-09",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 5,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -7116,7 +7102,7 @@
       "https://www.roccabox.com/new-developments/estepona/biubay"
      ],
      "asOf": "2026-11-21",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 5,
      "total": 10,
      "note": "",
@@ -7142,7 +7128,7 @@
   },
   "villa-infinity": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -7166,11 +7152,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/villa-infinity-casares/"
      ],
-     "asOf": "2026-11-16",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": null,
-     "note": "Price list of 16 November 2026",
+     "note": "Price list of 23 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -7180,8 +7166,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/casares/villa-infinity"
      ],
-     "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -7207,7 +7193,7 @@
   },
   "cortijo-i-cortesin-hill-club": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -7228,7 +7214,7 @@
       "https://www.roccabox.com/new-developments/casares/cortijo-i-cortesin-hill-club"
      ],
      "asOf": "2026-11-11",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -7254,7 +7240,7 @@
   },
   "villa-natalie": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -7277,7 +7263,7 @@
       "https://www.roccabox.com/new-developments/manilva/villa-natalie"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -7303,7 +7289,7 @@
   },
   "villa-tierra": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -7327,11 +7313,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/villa-tierra-almenara-golf-sotogrande/"
      ],
-     "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 1,
      "total": null,
-     "note": "Price list of 17 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -7342,7 +7328,7 @@
       "https://www.roccabox.com/new-developments/san-roque/villa-tierra"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -7368,7 +7354,7 @@
   },
   "villa-halo": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "15",
@@ -7391,7 +7377,7 @@
       "https://www.roccabox.com/new-developments/san-roque/villa-halo"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -7493,7 +7479,7 @@
   },
   "project-vivaldi-sierra-blanca": {
    "level": "project",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [],
    "sources": [
     {
@@ -7504,7 +7490,7 @@
       "https://www.roccabox.com/new-developments/marbella/vivaldi-ii"
      ],
      "asOf": "2026-06-05",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": null,
      "total": null,
      "note": "Listed for sale (schema.org availability: PreOrder, 1 offers); no unit list published",
@@ -7532,7 +7518,7 @@
   },
   "the-hills-14": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -7555,7 +7541,7 @@
       "https://www.roccabox.com/new-developments/benahavis/the-hills-14"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -7660,18 +7646,18 @@
   },
   "villa-noon-the-fifteen": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
      "type": "Villa",
      "label": "Villas",
      "beds": 9,
-     "built": 1811,
-     "usable": 1539,
-     "terrace": 990,
-     "garden": 4507,
-     "floor": "Ground floor + 4507 m² garden",
+     "built": 1696,
+     "usable": 1442,
+     "terrace": 575,
+     "garden": 4506,
+     "floor": "Ground floor + 4506 m² garden",
      "price": 13000000,
      "status": "available",
      "src": "https://wesellhomes.es/en/new-build/villa-noon-sotogrande/"
@@ -7684,11 +7670,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/villa-noon-sotogrande/"
      ],
-     "asOf": "2026-11-16",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": null,
-     "note": "Price list of 16 November 2026",
+     "note": "Price list of 23 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -7699,7 +7685,7 @@
       "https://www.roccabox.com/new-developments/san-roque/villa-noon"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -7725,7 +7711,7 @@
   },
   "villa-dune-la-gran-reserva": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -7749,11 +7735,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/villa-dune-the-fifteen-sotogrande/"
      ],
-     "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 1,
      "total": null,
-     "note": "Price list of 17 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -7764,7 +7750,7 @@
       "https://www.roccabox.com/new-developments/san-roque/villa-dune"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -7813,7 +7799,7 @@
   },
   "villa-maximus-marbella-club": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "villa",
@@ -7835,7 +7821,7 @@
       "https://www.roccabox.com/new-developments/benahavis/villa-maximus"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 1,
      "note": "",
@@ -7861,7 +7847,7 @@
   },
   "el-madronal-villa-tiffany-hope": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa Hope",
@@ -7897,7 +7883,7 @@
       "https://www.roccabox.com/new-developments/benahavis/el-madronal-villas-villa-tiffany"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 2,
      "total": 2,
      "note": "",
@@ -7951,7 +7937,7 @@
   },
   "el-bosque-ii": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa",
@@ -7990,11 +7976,11 @@
       "https://wesellhomes.es/en/new-build/el-bosque-ii-villa-stonehaven-benahavis/",
       "https://wesellhomes.es/en/new-build/el-bosque-ii-villa-forest-bay-benahavis/"
      ],
-     "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 2,
      "total": null,
-     "note": "Price list of 18 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -8005,7 +7991,7 @@
       "https://santinahomes.com/new-developments/el-bosque-ii/"
      ],
      "asOf": "2026-11-07",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 3,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -8021,7 +8007,7 @@
       "https://www.roccabox.com/new-developments/benahavis/el-bosque-phase-ii-villa-pine-crest"
      ],
      "asOf": "2026-07-21",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 3,
      "total": 3,
      "note": "",
@@ -8047,7 +8033,7 @@
   },
   "the-collection-camojan": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "type": "Villa",
@@ -8113,7 +8099,7 @@
       "https://santinahomes.com/new-developments/the-collection-camojan/"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 5,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -8127,7 +8113,7 @@
       "https://www.roccabox.com/new-developments/marbella/camojan-six-villas"
      ],
      "asOf": "2026-08-31",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": null,
      "total": null,
      "note": "Listed for sale (schema.org availability: PreOrder, 6 offers); no unit list published",
@@ -8153,7 +8139,7 @@
   },
   "aurea-villas": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "VILLA 4",
@@ -8261,11 +8247,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/aurea-villas-estepona/"
      ],
-     "asOf": "2026-11-16",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 7,
      "total": null,
-     "note": "Price list of 16 November 2026",
+     "note": "Price list of 23 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -8276,7 +8262,7 @@
       "https://santinahomes.com/new-developments/aurea-villas/"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 5,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -8290,7 +8276,7 @@
       "https://www.roccabox.com/new-developments/estepona/aurea-villas"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 7,
      "total": 10,
      "note": "",
@@ -8316,7 +8302,7 @@
   },
   "seven-diamonds": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa 6",
@@ -8397,7 +8383,7 @@
       "https://wesellhomes.es/en/new-build/seven-diamonds-estepona/"
      ],
      "asOf": "2026-11-19",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 5,
      "total": null,
      "note": "Price list of 19 November 2026",
@@ -8411,7 +8397,7 @@
       "https://santinahomes.com/new-developments/seven-diamonds/"
      ],
      "asOf": "2026-11-03",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 5,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -8424,8 +8410,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/estepona/seven-diamonds"
      ],
-     "asOf": "2026-11-20",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": 5,
      "total": 7,
      "note": "",
@@ -8451,7 +8437,7 @@
   },
   "marine-hills-the-villas": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "113",
@@ -8574,7 +8560,7 @@
       "https://wesellhomes.es/en/new-build/marine-hills-the-villas-estepona/"
      ],
      "asOf": "2026-11-19",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 8,
      "total": null,
      "note": "Price list of 19 November 2026",
@@ -8587,8 +8573,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/estepona/marine-hills-villas"
      ],
-     "asOf": "2026-11-21",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": 8,
      "total": 9,
      "note": "",
@@ -8614,7 +8600,7 @@
   },
   "vista-lago-residences": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa Number 9",
@@ -8666,11 +8652,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/vista-lago-residences-benahavis/"
      ],
-     "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 3,
      "total": null,
-     "note": "Price list of 18 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -8681,7 +8667,7 @@
       "https://www.roccabox.com/new-developments/benahavis/vista-lago-residences"
      ],
      "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 3,
      "total": 7,
      "note": "",
@@ -8730,7 +8716,7 @@
   },
   "noura-villas": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "VILLA 1",
@@ -8769,11 +8755,11 @@
       "https://wesellhomes.es/en/new-build/noura-villas-moon-marbella/",
       "https://wesellhomes.es/en/new-build/noura-villas-sky-marbella/"
      ],
-     "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 2,
      "total": null,
-     "note": "Price list of 18 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -8784,7 +8770,7 @@
       "https://santinahomes.com/new-developments/noura/"
      ],
      "asOf": "2026-11-07",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 2,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -8797,8 +8783,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/marbella/noura-villas"
      ],
-     "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": 2,
      "total": 3,
      "note": "",
@@ -8824,7 +8810,7 @@
   },
   "balcon-del-mediterraneo": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "GATE 2",
@@ -9146,11 +9132,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/balcon-del-mediterraneo-estepona/"
      ],
-     "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 24,
      "total": null,
-     "note": "Price list of 18 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 7
     },
@@ -9161,7 +9147,7 @@
       "https://santinahomes.com/new-developments/balcon-del-mediterraneo/"
      ],
      "asOf": "2026-11-08",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 25,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -9175,7 +9161,7 @@
       "https://www.roccabox.com/new-developments/estepona/balcon-del-mediterraneo"
      ],
      "asOf": "2026-11-21",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 25,
      "total": 36,
      "note": "",
@@ -9202,7 +9188,7 @@
   },
   "villas-monte-palatino": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "R190-B",
@@ -9268,11 +9254,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/villas-monte-palatino-estepona/"
      ],
-     "asOf": "2026-11-18",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 4,
      "total": null,
-     "note": "Price list of 18 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -9283,7 +9269,7 @@
       "https://www.roccabox.com/new-developments/estepona/villas-monte-palatino"
      ],
      "asOf": "2026-11-21",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 4,
      "total": 5,
      "note": "",
@@ -9309,7 +9295,7 @@
   },
   "azurean-marbella": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "B3-55",
@@ -9676,7 +9662,7 @@
       "https://wesellhomes.es/en/new-build/azurean-marbella-destinations-by-hyatt-benahavis/"
      ],
      "asOf": "2026-11-19",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 27,
      "total": null,
      "note": "Price list of 19 November 2026",
@@ -9690,7 +9676,7 @@
       "https://www.roccabox.com/new-developments/benahavis/azurean-marbella"
      ],
      "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 27,
      "total": 133,
      "note": "",
@@ -9717,7 +9703,7 @@
   },
   "villa-awa-elviria": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "Villa 3",
@@ -9741,11 +9727,11 @@
      "urls": [
       "https://wesellhomes.es/en/new-build/villa-awa-marbella/"
      ],
-     "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
      "available": 1,
      "total": null,
-     "note": "Price list of 17 November 2026",
+     "note": "Price list of 25 November 2026",
      "primary": true,
      "penthousesAvailable": 0
     },
@@ -9755,8 +9741,8 @@
      "urls": [
       "https://www.roccabox.com/new-developments/marbella/villa-awa"
      ],
-     "asOf": "2026-11-17",
-     "checked": "2026-11-23",
+     "asOf": "2026-11-24",
+     "checked": "2026-11-26",
      "available": null,
      "total": null,
      "note": "Listed for sale (schema.org availability: PreOrder, 1 offers); no unit list published",
@@ -9782,7 +9768,7 @@
   },
   "agua-bel-air": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "G.1",
@@ -9807,7 +9793,7 @@
       "https://wesellhomes.es/en/new-build/agua-turnkey-delivery-estepona/"
      ],
      "asOf": "2026-11-20",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": null,
      "note": "Price list of 20 November 2026",
@@ -9833,7 +9819,7 @@
   },
   "lyra-residences": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "id": "LYR-08",
@@ -9914,7 +9900,7 @@
       "https://wesellhomes.es/en/new-build/lyra-residences-estepona/"
      ],
      "asOf": "2026-11-20",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 5,
      "total": null,
      "note": "Price list of 20 November 2026",
@@ -9928,7 +9914,7 @@
       "https://www.roccabox.com/new-developments/benahavis/lyra-residences"
      ],
      "asOf": "2026-11-10",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 5,
      "total": 15,
      "note": "",
@@ -9954,7 +9940,7 @@
   },
   "aruna-cabopino": {
    "level": "unit",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-26",
    "units": [
     {
      "type": "Ground floor",
@@ -9976,7 +9962,7 @@
       "https://santinahomes.com/new-developments/aruna/"
      ],
      "asOf": "2026-11-03",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": null,
      "note": "“Built” as listed by Santina (may include terraces)",
@@ -9990,7 +9976,7 @@
       "https://www.roccabox.com/new-developments/marbella/aruna-cabopino-golf"
      ],
      "asOf": "2026-11-10",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "available": 1,
      "total": 12,
      "note": "",
@@ -10036,6 +10022,801 @@
    ],
    "priceMin": 2150000,
    "priceMax": 2600000,
+   "penthouse": {
+    "available": 0,
+    "priceMin": 0,
+    "priceMax": 0,
+    "evidence": [],
+    "basis": ""
+   }
+  },
+  "alcantara-del-mar-villas": {
+   "level": "unit",
+   "lastChecked": "2026-11-26",
+   "units": [
+    {
+     "id": "VILLA 3",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 6,
+     "built": 450,
+     "usable": 361,
+     "terrace": 186,
+     "garden": 306,
+     "floor": "Ground floor + 306 m² garden",
+     "price": 2167250,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/"
+    },
+    {
+     "id": "VILLA 5",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 6,
+     "built": 450,
+     "usable": 361,
+     "terrace": 186,
+     "garden": 306,
+     "floor": "Ground floor + 306 m² garden",
+     "price": 2167250,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/"
+    },
+    {
+     "id": "VILLA 4",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 6,
+     "built": 450,
+     "usable": 361,
+     "terrace": 186,
+     "garden": 306,
+     "floor": "Ground floor + 306 m² garden",
+     "price": 2267250,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/"
+    },
+    {
+     "id": "VILLA 7",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 6,
+     "built": 450,
+     "usable": 361,
+     "terrace": 186,
+     "garden": 306,
+     "floor": "Ground floor + 306 m² garden",
+     "price": 2267250,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/"
+    },
+    {
+     "id": "VILLA 1",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 5,
+     "built": 440,
+     "usable": 354,
+     "terrace": 191,
+     "garden": 380,
+     "floor": "Ground floor + 380 m² garden",
+     "price": 2267250,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/"
+    },
+    {
+     "id": "VILLA 2",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 5,
+     "built": 440,
+     "usable": 354,
+     "terrace": 191,
+     "garden": 380,
+     "floor": "Ground floor + 380 m² garden",
+     "price": 2267250,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/"
+    },
+    {
+     "id": "VILLA 6",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 6,
+     "built": 450,
+     "usable": 361,
+     "terrace": 186,
+     "garden": 306,
+     "floor": "Ground floor + 306 m² garden",
+     "price": 2367250,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/"
+    },
+    {
+     "id": "VILLA 11",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 5,
+     "built": 427,
+     "usable": 340,
+     "terrace": 224,
+     "garden": 380,
+     "floor": "Ground floor + 380 m² garden",
+     "price": 2367250,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/"
+    },
+    {
+     "id": "VILLA 9",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 6,
+     "built": 450,
+     "usable": 361,
+     "terrace": 186,
+     "garden": 306,
+     "floor": "Ground floor + 306 m² garden",
+     "price": 2367250,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/"
+    },
+    {
+     "id": "VILLA 8",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 6,
+     "built": 450,
+     "usable": 361,
+     "terrace": 186,
+     "garden": 306,
+     "floor": "Ground floor + 306 m² garden",
+     "price": 2367250,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/"
+    },
+    {
+     "id": "VILLA 10",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 6,
+     "built": 450,
+     "usable": 399,
+     "terrace": 283,
+     "garden": 392,
+     "floor": "Ground floor + 392 m² garden",
+     "price": 2550000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/"
+    }
+   ],
+   "sources": [
+    {
+     "label": "WeSellHomes price list",
+     "url": "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/",
+     "urls": [
+      "https://wesellhomes.es/en/new-build/alcantara-del-mar-villas-marbella/"
+     ],
+     "asOf": "2026-11-23",
+     "checked": "2026-11-26",
+     "available": 11,
+     "total": null,
+     "note": "Price list of 23 November 2026",
+     "primary": true,
+     "penthousesAvailable": 0
+    },
+    {
+     "label": "Roccabox",
+     "url": "https://www.roccabox.com/new-developments/marbella/alcantara-del-mar-villas",
+     "urls": [
+      "https://www.roccabox.com/new-developments/marbella/alcantara-del-mar-villas"
+     ],
+     "asOf": "2026-11-17",
+     "checked": "2026-11-26",
+     "available": 11,
+     "total": 11,
+     "note": "",
+     "primary": false,
+     "penthousesAvailable": 0
+    }
+   ],
+   "notes": [],
+   "available": 11,
+   "total": 11,
+   "reserved": null,
+   "sold": null,
+   "priceMin": 2167250,
+   "priceMax": 2550000,
+   "penthouse": {
+    "available": 0,
+    "priceMin": 0,
+    "priceMax": 0,
+    "evidence": [],
+    "basis": ""
+   },
+   "summary": "11 available of 11"
+  },
+  "imagine-bel-air": {
+   "level": "unit",
+   "lastChecked": "2026-11-26",
+   "units": [
+    {
+     "id": "Villa 05",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 5,
+     "built": 582,
+     "usable": 494,
+     "terrace": 76,
+     "garden": 986,
+     "floor": "Ground floor + 986 m² garden",
+     "price": 2400000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/imagine-estepona/"
+    },
+    {
+     "id": "Villa 06",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 5,
+     "built": 582,
+     "usable": 494,
+     "terrace": 76,
+     "garden": 987,
+     "floor": "Ground floor + 987 m² garden",
+     "price": 2400000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/imagine-estepona/"
+    },
+    {
+     "id": "Villa 08",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 5,
+     "built": 582,
+     "usable": 494,
+     "terrace": 76,
+     "garden": 1090,
+     "floor": "Ground floor + 1090 m² garden",
+     "price": 2620000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/imagine-estepona/"
+    },
+    {
+     "id": "Villa 09",
+     "type": "Villa",
+     "label": "Villas",
+     "beds": 5,
+     "built": 582,
+     "usable": 494,
+     "terrace": 76,
+     "garden": 1172,
+     "floor": "Ground floor + 1172 m² garden",
+     "price": 2730000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/imagine-estepona/"
+    }
+   ],
+   "sources": [
+    {
+     "label": "WeSellHomes price list",
+     "url": "https://wesellhomes.es/en/new-build/imagine-estepona/",
+     "urls": [
+      "https://wesellhomes.es/en/new-build/imagine-estepona/"
+     ],
+     "asOf": "2026-11-20",
+     "checked": "2026-11-26",
+     "available": 4,
+     "total": null,
+     "note": "Price list of 20 November 2026",
+     "primary": true,
+     "penthousesAvailable": 0
+    },
+    {
+     "label": "Santina Homes",
+     "url": "https://santinahomes.com/new-developments/imagine/",
+     "urls": [
+      "https://santinahomes.com/new-developments/imagine/"
+     ],
+     "asOf": "2026-11-03",
+     "checked": "2026-11-26",
+     "available": 4,
+     "total": null,
+     "note": "“Built” as listed by Santina (may include terraces)",
+     "primary": false,
+     "penthousesAvailable": 0
+    },
+    {
+     "label": "Roccabox",
+     "url": "https://www.roccabox.com/new-developments/estepona/imagine",
+     "urls": [
+      "https://www.roccabox.com/new-developments/estepona/imagine"
+     ],
+     "asOf": "2026-11-21",
+     "checked": "2026-11-26",
+     "available": 4,
+     "total": 6,
+     "note": "",
+     "primary": false,
+     "penthousesAvailable": 0
+    }
+   ],
+   "notes": [],
+   "available": 4,
+   "total": 6,
+   "reserved": null,
+   "sold": null,
+   "priceMin": 2400000,
+   "priceMax": 2730000,
+   "penthouse": {
+    "available": 0,
+    "priceMin": 0,
+    "priceMax": 0,
+    "evidence": [],
+    "basis": ""
+   },
+   "summary": "4 available of 6"
+  },
+  "asperia-heights": {
+   "level": "unit",
+   "lastChecked": "2026-11-26",
+   "units": [
+    {
+     "id": "B5 PB 0.1",
+     "type": "Ground floor",
+     "label": "Apartments",
+     "beds": 2,
+     "built": 85,
+     "usable": 75,
+     "terrace": 57,
+     "floor": "Block 5 · Ground floor",
+     "price": 625000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B4 PB 1.1",
+     "type": "Apartment",
+     "label": "Apartments",
+     "beds": 2,
+     "built": 85,
+     "usable": 75,
+     "terrace": 14,
+     "floor": "Block 4 · Floor 1",
+     "price": 625000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B1 PB 0.3",
+     "type": "Ground floor",
+     "label": "Apartments",
+     "beds": 3,
+     "built": 103,
+     "usable": 89,
+     "terrace": 28,
+     "floor": "Block 1 · Ground floor",
+     "price": 626000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B2 PB 1.3",
+     "type": "Apartment",
+     "label": "Apartments",
+     "beds": 3,
+     "built": 103,
+     "usable": 89,
+     "terrace": 21,
+     "floor": "Block 2 · Floor 1",
+     "price": 650000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B5 PA 1.1",
+     "type": "Apartment",
+     "label": "Apartments",
+     "beds": 2,
+     "built": 85,
+     "usable": 75,
+     "terrace": 14,
+     "floor": "Block 5 · Floor 1",
+     "price": 690000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B5 PB 2.1",
+     "type": "Apartment",
+     "label": "Apartments",
+     "beds": 2,
+     "built": 85,
+     "usable": 75,
+     "terrace": 14,
+     "floor": "Block 5 · Floor 2",
+     "price": 690000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B1 PA 1.2",
+     "type": "Apartment",
+     "label": "Apartments",
+     "beds": 3,
+     "built": 120,
+     "usable": 106,
+     "terrace": 90,
+     "floor": "Block 1 · Floor 1",
+     "price": 725000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B3 PB 1.1",
+     "type": "Apartment",
+     "label": "Apartments",
+     "beds": 2,
+     "built": 85,
+     "usable": 75,
+     "terrace": 14,
+     "floor": "Block 3 · Floor 1",
+     "price": 750000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B4 PB 2.1",
+     "type": "Apartment",
+     "label": "Apartments",
+     "beds": 2,
+     "built": 85,
+     "usable": 75,
+     "terrace": 14,
+     "floor": "Block 4 · Floor 2",
+     "price": 750000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B3 PB 1.2",
+     "type": "Apartment",
+     "label": "Apartments",
+     "beds": 2,
+     "built": 77,
+     "usable": 68,
+     "terrace": 21,
+     "floor": "Block 3 · Floor 1",
+     "price": 790000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B4 PA 0.3",
+     "type": "Ground floor",
+     "label": "Apartments",
+     "beds": 3,
+     "built": 103,
+     "usable": 88,
+     "terrace": 144,
+     "floor": "Block 4 · Ground floor",
+     "price": 875000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B3 PA 0.1",
+     "type": "Ground floor",
+     "label": "Apartments",
+     "beds": 2,
+     "built": 85,
+     "usable": 75,
+     "terrace": 61,
+     "floor": "Block 3 · Ground floor",
+     "price": 900000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B5 PA 1.2",
+     "type": "Apartment",
+     "label": "Apartments",
+     "beds": 3,
+     "built": 120,
+     "usable": 106,
+     "terrace": 80,
+     "floor": "Block 5 · Floor 1",
+     "price": 1300000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B3 PB 0.3",
+     "type": "Ground floor",
+     "label": "Apartments",
+     "beds": 3,
+     "built": 102,
+     "usable": 89,
+     "terrace": 103,
+     "floor": "Block 3 · Ground floor",
+     "price": 1350000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B2 PA 2.2",
+     "type": "Penthouse",
+     "label": "Penthouses",
+     "beds": 2,
+     "built": 87,
+     "usable": 77,
+     "terrace": 87,
+     "floor": "Block 2 · Floor 2",
+     "price": 790000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B1 PB 2.2",
+     "type": "Penthouse",
+     "label": "Penthouses",
+     "beds": 2,
+     "built": 87,
+     "usable": 77,
+     "terrace": 75,
+     "floor": "Block 1 · Floor 2",
+     "price": 850000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B2 PB 2.2",
+     "type": "Penthouse",
+     "label": "Penthouses",
+     "beds": 2,
+     "built": 87,
+     "usable": 77,
+     "terrace": 75,
+     "floor": "Block 2 · Floor 2",
+     "price": 850000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B4 PA 2.2",
+     "type": "Penthouse",
+     "label": "Penthouses",
+     "beds": 2,
+     "built": 87,
+     "usable": 77,
+     "terrace": 83,
+     "floor": "Block 4 · Floor 2",
+     "price": 950000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B4 PB 2.2",
+     "type": "Penthouse",
+     "label": "Penthouses",
+     "beds": 2,
+     "built": 87,
+     "usable": 77,
+     "terrace": 75,
+     "floor": "Block 4 · Floor 2",
+     "price": 1050000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B5 PA 2.2",
+     "type": "Penthouse",
+     "label": "Penthouses",
+     "beds": 2,
+     "built": 87,
+     "usable": 77,
+     "terrace": 121,
+     "floor": "Block 5 · Floor 2",
+     "price": 1300000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    },
+    {
+     "id": "B3 PB 2.1",
+     "type": "Penthouse",
+     "label": "Penthouses",
+     "beds": 3,
+     "built": 111,
+     "usable": 97,
+     "terrace": 228,
+     "floor": "Block 3 · Floor 2",
+     "price": 2500000,
+     "status": "available",
+     "src": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+    }
+   ],
+   "sources": [
+    {
+     "label": "WeSellHomes price list",
+     "url": "https://wesellhomes.es/en/new-build/asperia-heights-estepona/",
+     "urls": [
+      "https://wesellhomes.es/en/new-build/asperia-heights-estepona/"
+     ],
+     "asOf": "2026-11-25",
+     "checked": "2026-11-26",
+     "available": 21,
+     "total": null,
+     "note": "Price list of 25 November 2026",
+     "primary": true,
+     "penthousesAvailable": 7
+    },
+    {
+     "label": "Roccabox",
+     "url": "https://www.roccabox.com/new-developments/estepona/asperia-heights",
+     "urls": [
+      "https://www.roccabox.com/new-developments/estepona/asperia-heights"
+     ],
+     "asOf": "2026-11-21",
+     "checked": "2026-11-26",
+     "available": 21,
+     "total": 21,
+     "note": "",
+     "primary": false,
+     "penthousesAvailable": 0
+    }
+   ],
+   "notes": [],
+   "available": 21,
+   "total": 21,
+   "reserved": null,
+   "sold": null,
+   "priceMin": 625000,
+   "priceMax": 2500000,
+   "penthouse": {
+    "available": 7,
+    "priceMin": 790000,
+    "priceMax": 2500000,
+    "evidence": [],
+    "basis": "unit list",
+    "maxTerrace": 228
+   },
+   "summary": "21 available of 21"
+  },
+  "ocean-view-marbella": {
+   "level": "unit",
+   "lastChecked": "2026-11-12",
+   "units": [
+    {
+     "id": "GF 2b 127",
+     "type": "Ground floor",
+     "beds": 2,
+     "built": 127,
+     "terrace": 71,
+     "price": 960000,
+     "status": "available",
+     "src": "https://marbella.live/new-developments/ocean-view-marbella"
+    },
+    {
+     "id": "GF 2b 132",
+     "type": "Ground floor",
+     "beds": 2,
+     "built": 132,
+     "terrace": 71,
+     "price": 960000,
+     "status": "available",
+     "src": "https://marbella.live/new-developments/ocean-view-marbella"
+    },
+    {
+     "id": "Apt 2b 132",
+     "type": "Apartment",
+     "beds": 2,
+     "built": 132,
+     "terrace": 67,
+     "price": 960000,
+     "status": "available",
+     "src": "https://marbella.live/new-developments/ocean-view-marbella"
+    },
+    {
+     "id": "GF 3b 151",
+     "type": "Ground floor",
+     "beds": 3,
+     "built": 151,
+     "terrace": 48,
+     "price": 980000,
+     "status": "available",
+     "src": "https://marbella.live/new-developments/ocean-view-marbella"
+    },
+    {
+     "id": "Apt 3b 149",
+     "type": "Apartment",
+     "beds": 3,
+     "built": 149,
+     "terrace": 61,
+     "price": 985000,
+     "status": "available",
+     "src": "https://marbella.live/new-developments/ocean-view-marbella"
+    },
+    {
+     "id": "GF 3b 149",
+     "type": "Ground floor",
+     "beds": 3,
+     "built": 149,
+     "terrace": 102,
+     "price": 1200000,
+     "status": "available",
+     "src": "https://marbella.live/new-developments/ocean-view-marbella"
+    },
+    {
+     "id": "GF 3b 177",
+     "type": "Ground floor",
+     "beds": 3,
+     "built": 177,
+     "terrace": 92,
+     "price": 1250000,
+     "status": "available",
+     "src": "https://marbella.live/new-developments/ocean-view-marbella"
+    },
+    {
+     "id": "PH 3b",
+     "type": "Penthouse",
+     "beds": 3,
+     "terrace": 272,
+     "price": 2000000,
+     "status": "available",
+     "src": "https://marbella.live/new-developments/ocean-view-marbella"
+    },
+    {
+     "id": "Apt 4b 288",
+     "type": "Apartment",
+     "beds": 4,
+     "built": 288,
+     "terrace": 285,
+     "price": 2950000,
+     "status": "available",
+     "src": "https://marbella.live/new-developments/ocean-view-marbella"
+    }
+   ],
+   "sources": [
+    {
+     "label": "Marbella Live (published asking prices, checked 12 Nov 2026)",
+     "url": "https://marbella.live/new-developments/ocean-view-marbella",
+     "asOf": "2026-11-12",
+     "primary": true
+    }
+   ],
+   "notes": [],
+   "asOf": "2026-11-12",
+   "summary": "9 homes listed for sale (of 44)",
+   "total": 44,
+   "available": 9,
+   "reserved": null,
+   "sold": null,
+   "priceMin": 960000,
+   "priceMax": 2950000,
+   "penthouse": {
+    "available": 1,
+    "priceMin": 2000000,
+    "priceMax": 2000000,
+    "evidence": [],
+    "basis": "unit list",
+    "maxTerrace": 272
+   }
+  },
+  "fairmont-residences-la-hacienda": {
+   "level": "project",
+   "lastChecked": "2026-06-29",
+   "units": [],
+   "sources": [
+    {
+     "label": "idealista/news (on sale via Colliers, 29 Jun 2026)",
+     "url": "https://www.idealista.com/news/inmobiliario/vivienda/2026/06/29/903003-asi-son-las-primeras-branded-residences-de-fairmont-en-europa-villas-en-sotogrande",
+     "asOf": "2026-06-29",
+     "primary": true
+    }
+   ],
+   "notes": [],
+   "asOf": "2026-06-29",
+   "summary": "On sale via Colliers; no unit list published (31 villas, from €2.75M)",
+   "total": 31,
    "penthouse": {
     "available": 0,
     "priceMin": 0,
